@@ -1,0 +1,282 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+:focus,
+:active {
+  outline: none;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+html,
+body {
+  height: 100%;
+  min-width: 320px;
+}
+
+body {
+  color: #636060;
+  line-height: 1;
+  font-family: "Inter";
+  font-size: 20px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+input,
+button,
+textarea {
+  font-family: "Inter";
+  font-size: inherit;
+}
+
+button {
+  cursor: pointer;
+  color: inherit;
+  background-color: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+a:link,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+.wrapper {
+  width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.wrapper > main {
+  flex: 1 1 auto;
+}
+
+.container {
+  max-width: 1220px;
+  width: 100%;
+  margin: 0px auto;
+  color: #000;
+}
+@media (max-width: 1232px) {
+  .container {
+    max-width: 970px;
+  }
+}
+@media (max-width: 992.98px) {
+  .container {
+    max-width: 750px;
+  }
+}
+@media (max-width: 767.98px) {
+  .container {
+    max-width: none;
+    padding: 0 10px;
+  }
+}
+
+.header {
+  padding: 42px 0;
+  background-color: #EDF2EC;
+}
+
+.header-body {
+  display: flex;
+  justify-content: space-between;
+}
+.logo {
+  display: flex;
+  align-items: flex-end;
+}
+.logo__img img {
+  max-width: 100%;
+}
+.logo__text {
+  color: #000;
+  font-size: 16px;
+}
+
+.header-menu-list {
+  display: flex;
+}
+.header-menu-list__link {
+  font-family: "Inika";
+  color: #010201;
+  font-size: 16px;
+}
+.header-menu-list__link span {
+  position: relative;
+  line-height: 28px;
+}
+.header-menu-list__link span::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background-color: #010201;
+  transition: all 0.3s ease 0s;
+}
+.header-menu-list__link:hover span::after {
+  left: 0;
+  width: 100%;
+}
+.header-menu-list .active {
+  color: #E06733;
+  font-weight: 700;
+}
+.header-menu-list .active span {
+  position: relative;
+  line-height: 28px;
+}
+.header-menu-list .active span::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: #E06733;
+  transition: all 0.3s ease 0s;
+}
+.header-menu-list .active:hover span::after {
+  left: 0;
+  width: 100%;
+}
+.header-menu-list li {
+  margin: 0px 46px 0px 0px;
+}
+.header-menu-list li:last-child {
+  margin: 0px 0px 0px 0px;
+}
+
+.welcome {
+  padding: 62px 0;
+  background-color: #EDF2EC;
+}
+
+.welcome-body {
+  display: flex;
+  justify-content: space-between;
+}
+.welcome-body-item {
+  padding: 45px 0px 0px 0px;
+  max-width: 550px;
+}
+.welcome-body-item__title {
+  color: #717171;
+  font-size: 45px;
+  line-height: 50px;
+  font-weight: 700;
+}
+.welcome-body-item__title span {
+  color: #499A18;
+}
+.welcome-body-item__text {
+  padding: 48px 0px 42px 0px;
+  max-width: 525px;
+  color: #636060;
+  line-height: 35px;
+}
+.about {
+  padding: 85px 0;
+}
+
+.about-body {
+  display: flex;
+  justify-content: space-between;
+}
+.about-body-item {
+  padding: 70px 0px 0px 0px;
+  max-width: 605px;
+}
+.about-body-item__title {
+  max-width: 460px;
+  color: #499A18;
+  font-family: "Inika";
+  font-size: 40px;
+  line-height: 52px;
+}
+.about-body-item__title span {
+  color: #E06733;
+}
+.about-body-item__text {
+  padding: 40px 0px 0px 0px;
+  color: #636060;
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0px 40px;
+  min-height: 50px;
+  min-width: 160px;
+  border: 1px solid #E06733;
+  border-radius: 5px;
+  font-size: 20px;
+  line-height: 50px;
+  color: #E06733;
+  text-align: center;
+  transition: all 0.3s ease 0s;
+}
+.btn.btn--b {
+  padding: 0px 27px;
+  min-height: 44px;
+  min-width: 160px;
+  border: 2px solid #E06733;
+  border-radius: 10px;
+  color: #000;
+  font-size: 16px;
+  line-height: 42px;
+  text-transform: uppercase;
+}
+.btn:hover {
+  background-color: #E06733;
+  color: #fff;
+}
+.btn.fw {
+  width: 100%;
+}
