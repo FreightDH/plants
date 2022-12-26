@@ -145,25 +145,22 @@
 								<h2 class="prices-body-item__title">Prices</h2>
 								<div class="prices-body-item-buttons">
 									<button class="prices-body-item-buttons__button"><span>Basics</span></button>
-									<div class="prices-body-item-buttons-card card">
+									<div class="prices-body-item-buttons-card card basics">
 										<div class="card__title">Basics</div>
-										<div class="card__divider"></div>
 										<p class="card__text">Release of Letraset sheets containing Lorem Ipsum passages, and more recently</p>
 										<div class="card__cost"><span>$15</span> / per hour</div>
 										<a href="#" class="card__btn">Order</a>
 									</div>
-									<button class="prices-body-item-buttons__button button--mm"><span>Standard</span></button>
-									<div class="prices-body-item-buttons-card card">
+									<button class="prices-body-item-buttons__button button--c"><span>Standard</span></button>
+									<div class="prices-body-item-buttons-card card standard">
 										<div class="card__title">Standard</div>
-										<div class="card__divider"></div>
 										<p class="card__text">Release of Letraset sheets containing Lorem Ipsum passages, and more recently</p>
 										<div class="card__cost"><span>$25</span> / per hour</div>
 										<a href="#" class="card__btn">Order</a>
 									</div>
-									<button class="prices-body-item-buttons__button"><span>Pro care</span></button>
-									<div class="prices-body-item-buttons-card card">
-										<div class="card__title">Basics</div>
-										<div class="card__divider"></div>
+									<button class="prices-body-item-buttons__button button--b"><span>Pro care</span></button>
+									<div class="prices-body-item-buttons-card card procare">
+										<div class="card__title">Pro care</div>
 										<p class="card__text">Release of Letraset sheets containing Lorem Ipsum passages, and more recently</p>
 										<div class="card__cost"><span>$35</span> / per hour</div>
 										<a href="#" class="card__btn">Order</a>
@@ -181,8 +178,89 @@
 					</div>
 				</div>
 			</section>
+			<section class="contacts">
+				<div class="container">
+					<h2 class="contacts__title">Contact us</h2>
+					<div class="contacts-body">
+						<div class="contacts-body__column">
+							<div class="contacts-body__img"><img src="img/contacts/01.png" alt="woman"></div>
+						</div>
+						<div class="contacts-body__column">
+							<div class="contacts-body-list">
+								<span class="contacts-body-list__placeholder">City</span>
+								<div class="contacts-body-list-options">
+									<ul>
+										<li class="contacts-body-list-options__option" data-option data-value="canandaigua"><span>Canandaigua, NY</span></li>
+										<li class="contacts-body-list-options__option" data-option data-value="newyork"><span>New York City</span></li>
+										<li class="contacts-body-list-options__option" data-option data-value="yonkers"><span>Yonkers, NY</span></li>
+										<li class="contacts-body-list-options__option" data-option data-value="sherrill"><span>Sherrill, NY</span></li>
+									</ul>
+								</div>
+							</div>
+							<select name="city" id="" class="contacts-body-list">
+								<option value="" disabled selected>City</option>
+								<option value="canandaigua" class="contacts-body-list__option">Canandaigua, NY</option>
+								<option value="newyork" class="contacts-body-list__option">New York City</option>
+								<option value="yonkers" class="contacts-body-list__option">Yonkers, NY</option>
+								<option value="sherrill" class="contacts-body-list__option">Sherrill, NY</option>
+							</select>
+							<div class="contacts-body-card" id="canandaigua">
+								<div class="contacts-body-card__column">
+									<div class="contacts-body-card__title">City:</div>
+									<div class="contacts-body-card__title">Phone:</div>
+									<div class="contacts-body-card__title">Office adress:</div>
+								</div>
+								<div class="contacts-body-card__column">
+									<div class="contacts-body-card__text">Canandaigua, NY</div>
+									<div class="contacts-body-card__text">+1 585 393 0001</div>
+									<div class="contacts-body-card__text">151 Charlotte Street</div>
+									<a href="tel:15853930001" class="contacts-body-card__btn">Call us</a>
+								</div>
+							</div>
+							<div class="contacts-body-card" id="newyork">
+								<div class="contacts-body-card__column">
+									<div class="contacts-body-card__title">City:</div>
+									<div class="contacts-body-card__title">Phone:</div>
+									<div class="contacts-body-card__title">Office adress:</div>
+								</div>
+								<div class="contacts-body-card__column">
+									<div class="contacts-body-card__text">New York City</div>
+									<div class="contacts-body-card__text">+1 212 456 0002</div>
+									<div class="contacts-body-card__text">9 East 91st Street</div>
+									<a href="tel:12124560002" class="contacts-body-card__btn">Call us</a>
+								</div>
+							</div><div class="contacts-body-card" id="yonkers">
+								<div class="contacts-body-card__column">
+									<div class="contacts-body-card__title">City:</div>
+									<div class="contacts-body-card__title">Phone:</div>
+									<div class="contacts-body-card__title">Office adress:</div>
+								</div>
+								<div class="contacts-body-card__column">
+									<div class="contacts-body-card__text">Yonkers, NY</div>
+									<div class="contacts-body-card__text">+1 914	678 0003</div>
+									<div class="contacts-body-card__text">511 Warburton Ave</div>
+									<a href="tel:19146780003" class="contacts-body-card__btn">Call us</a>
+								</div>
+							</div><div class="contacts-body-card" id="sherrill">
+								<div class="contacts-body-card__column">
+									<div class="contacts-body-card__title">City:</div>
+									<div class="contacts-body-card__title">Phone:</div>
+									<div class="contacts-body-card__title">Office adress:</div>
+								</div>
+								<div class="contacts-body-card__column">
+									<div class="contacts-body-card__text">Sherrill, NY</div>
+									<div class="contacts-body-card__text">+1 315	908 0004</div>
+									<div class="contacts-body-card__text">14 WEST Noyes BLVD</div>
+									<a href="tel:13159080004" class="contacts-body-card__btn">Call us</a>
+								</div>
+							</div>
+						</div>	
+					</div>
+				</div>
+			</section>
 		</main>
-		<footer class="footer"></footer>
+		<footer class="footer">
+		</footer>
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 	<script src="js/script.js"></script>

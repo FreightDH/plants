@@ -315,7 +315,7 @@ h6 {
 }
 
 .prices {
-  padding: 40px 0px 115px 0px;
+  padding: 40px 0px 100px 0px;
 }
 
 .prices-body {
@@ -348,6 +348,7 @@ h6 {
   padding: 33px 40px;
   border: 1px solid #E3E1D5;
   border-radius: 20px;
+  position: relative;
 }
 .prices-body-item-buttons__button {
   display: block;
@@ -373,13 +374,233 @@ h6 {
   border-radius: 50%;
   background: url(../img/prices/arrow.svg) #D9D9D9 center no-repeat;
 }
-.prices-body-item-buttons__button.button--mm {
-  margin: 32px 0px;
+.prices-body-item-buttons__button.button--c {
+  margin: 32px 0px 32px 0px;
+}
+.prices-body-item-buttons__button.button--b {
+  margin: 0px 0px 0px 0px;
 }
 
 .card {
   display: none;
+  padding: 0 40px;
+  min-height: 140px;
+  width: 250px;
+  background: #D6E7D2;
+  border-radius: 20px;
+  position: absolute;
+  top: 0px;
 }
+.card__title {
+  cursor: pointer;
+  color: #000;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 50px;
+  text-align: left;
+  position: relative;
+}
+.card__title::after {
+  content: "";
+  position: absolute;
+  top: 17px;
+  right: 0px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: url(../img/prices/arrow.svg) #D9D9D9 center no-repeat;
+  transform: rotate(-180deg);
+}
+.card__title::before {
+  content: "";
+  position: absolute;
+  width: 164px;
+  height: 0.5px;
+  bottom: 7px;
+  left: 0;
+  background-color: #AEA1A1;
+}
+.card__text {
+  font-weight: 300;
+  font-size: 10px;
+  line-height: 10px;
+  color: #717171;
+}
+.card__cost {
+  color: #000;
+  font-size: 12px;
+  line-height: 20px;
+}
+.card__cost span {
+  font-weight: 700;
+  color: #E06733;
+}
+.card__btn {
+  padding: 0 20px;
+  min-height: 25px;
+  min-width: 85px;
+  background-color: #fff;
+  border-radius: 10px;
+  color: #717171;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 25px;
+}
+.card__btn:hover {
+  color: #000;
+  background-color: #EDF2EC;
+}
+
+.basics {
+  display: none;
+}
+
+.standard {
+  display: none;
+}
+
+.procare {
+  display: none;
+}
+
+.contacts {
+  padding: 60px 0px 0px 0px;
+  background-color: #EDF2EC;
+}
+.contacts__title {
+  font-family: "Inika";
+  color: #499A18;
+  text-align: center;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 52px;
+}
+.contacts select {
+  display: none;
+}
+
+.contacts-body {
+  display: flex;
+  justify-content: space-between;
+}
+.contacts-body__img {
+  position: relative;
+  top: -60px;
+}
+
+.contacts-body-list {
+  margin: 35px 0px 45px 0px;
+  height: 50px;
+  min-width: 450px;
+  position: relative;
+  cursor: pointer;
+  background: #D6E7D2;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 0px;
+}
+.contacts-body-list__placeholder {
+  padding: 0px 0px 0px 22px;
+  color: #717171;
+  font-size: 20px;
+  line-height: 50px;
+  letter-spacing: 0.05em;
+}
+.contacts-body-list__placeholder::after {
+  content: "";
+  position: absolute;
+  top: 17px;
+  right: 34px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: url(../img/contacts/arrow.svg) #AEA1A1 center no-repeat;
+}
+
+.contacts-body-list-options {
+  display: none;
+  padding: 25px 0px 0px 0px;
+  background-color: #DCE9D9;
+}
+.contacts-body-list-options__option {
+  padding: 0px 0px 0px 34px;
+  position: relative;
+  cursor: pointer;
+  color: #499A18;
+  font-size: 16px;
+  line-height: 40px;
+}
+.contacts-body-list-options__option::after {
+  content: "";
+  position: absolute;
+  width: 380px;
+  height: 1px;
+  bottom: 7px;
+  left: 35px;
+  background-color: #D9D9D9;
+}
+.contacts-body-list-options__option:hover {
+  color: #717171;
+}
+.contacts-body-list-options__option:hover::after {
+  background-color: #717171;
+}
+
+.contacts-body-card {
+  padding: 17px 0px 0px 35px;
+  display: flex;
+  border: 1px solid #000000;
+  border-radius: 20px;
+}
+.contacts-body-card__title {
+  margin: 0px 5px 0px 0px;
+  color: #000;
+  font-size: 16px;
+  line-height: 40px;
+  letter-spacing: 0.05em;
+}
+.contacts-body-card__text {
+  color: #717171;
+  font-size: 16px;
+  line-height: 40px;
+  letter-spacing: 0.05em;
+}
+.contacts-body-card__btn {
+  display: inline-block;
+  margin: 24px 0px 32px 0px;
+  padding: 0 29px;
+  min-height: 26px;
+  min-width: 122px;
+  border: 1px solid #E06733;
+  border-radius: 5px;
+  font-family: "Inika";
+  color: #717171;
+  font-weight: 700;
+  font-size: 10px;
+  line-height: 26px;
+  text-align: center;
+  transition: all 0.3s ease 0s;
+}
+.contacts-body-card__btn:hover {
+  background-color: #E06733;
+  color: #fff;
+}
+
+#canandaigua {
+  display: none;
+}
+
+#newyork {
+  display: none;
+}
+
+#yonkers {
+  display: none;
+}
+
+#sherrill {
+  display: none;
+}
+
 .btn {
   display: inline-block;
   padding: 0px 40px;
