@@ -192,6 +192,32 @@ h6 {
   margin: 0px 0px 0px 0px;
 }
 
+.footer {
+  padding: 50px 0;
+}
+
+.footer-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #000;
+  font-size: 20px;
+}
+.footer-body-item {
+  display: flex;
+  margin: 0 -10px;
+}
+.footer-body-item__column {
+  padding: 0 10px;
+}
+
+.footer-body-links {
+  margin: 0 -7px;
+}
+.footer-body-links__link {
+  padding: 0 7px;
+}
+
 .welcome {
   padding: 62px 0;
   background-color: #EDF2EC;
@@ -484,8 +510,7 @@ h6 {
   justify-content: space-between;
 }
 .contacts-body__img {
-  position: relative;
-  top: -60px;
+  margin: -60px 0px 0px 0px;
 }
 
 .contacts-body-list {
