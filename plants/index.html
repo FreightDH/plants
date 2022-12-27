@@ -32,11 +32,11 @@
 						</div>
 						<nav class="header-menu__menu">
 							<ul class="header-menu-list">
-								<li><a href="#" class="header-menu-list__link active"><span>Home</span></a></li>
-								<li><a href="#" class="header-menu-list__link"><span>About us</span></a></li>
-								<li><a href="#" class="header-menu-list__link"><span>Service</span></a></li>
-								<li><a href="#" class="header-menu-list__link"><span>Price</span></a></li>
-								<li><a href="#" class="header-menu-list__link"><span>Contacts</span></a></li>
+								<li><a href="#home" class="header-menu-list__link active"><span>Home</span></a></li>
+								<li><a href="#about" class="header-menu-list__link"><span>About us</span></a></li>
+								<li><a href="#service" class="header-menu-list__link"><span>Service</span></a></li>
+								<li><a href="#price" class="header-menu-list__link"><span>Price</span></a></li>
+								<li><a href="#contacts" class="header-menu-list__link"><span>Contacts</span></a></li>
 							</ul>
 						</nav>
 					</div>
@@ -44,7 +44,7 @@
 			</div>
 		</header>
 		<main class="content">
-			<section class="welcome">
+			<section class="welcome" id="home">
 				<div class="container">
 					<div class="welcome-body">
 						<div class="welcome-body__column">
@@ -54,13 +54,13 @@
 							<div class="welcome-body-item">
 								<h1 class="welcome-body-item__title">We grow <span>plants</span> and give you oxygen</h1>
 								<p class="welcome-body-item__text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-								<button href="" class="welcome-body-item__btn btn btn--b">Learn more</button>
+								<a href="#about"><button href="" class="welcome-body-item__btn btn btn--b">Learn more</button></a>
 							</div>
 						</div>
 					</div>
 				</div>
 			</section>
-			<section class="about">
+			<section class="about" id="about">
 				<div class="container">
 					<div class="about-body">
 						<div class="about-body__column">
@@ -75,7 +75,7 @@
 					</div>
 				</div>
 			</section>
-			<section class="service">
+			<section class="service" id="service">
 				<div class="container">
 					<div class="service-body">
 						<div class="service-body-header">
@@ -84,9 +84,9 @@
 							</div>
 							<div class="service-body-header__column">
 								<ul class="service-body-header-list">
-									<li data-filter="1" class="service-body-header-list__item btn"><button>Gardens</button></li>
-									<li data-filter="2" class="service-body-header-list__item btn"><button>Lawn</button></li>
-									<li data-filter="3" class="service-body-header-list__item btn"><button>Planting</button></li>
+									<li data-filter="1" class="service-body-header-list__item"><button class="btn">Gardens</button></li>
+									<li data-filter="2" class="service-body-header-list__item"><button class="btn">Lawn</button></li>
+									<li data-filter="3" class="service-body-header-list__item"><button class="btn">Planting</button></li>
 								</ul>
 							</div>
 						</div>
@@ -137,7 +137,7 @@
 					</div>
 				</div>
 			</section>
-			<section class="prices">
+			<section class="prices" id="price">
 				<div class="container">
 					<div class="prices-body">
 						<div class="prices-body__column">
@@ -171,14 +171,14 @@
 						<div class="prices-body__column">
 							<div class="prices-body-item item--r">
 								<h2 class="prices-body-item__title title--r">Our best <span>gardeners</span> are ready to help you</h2>
-								<button href="#" class="prices-body-item__btn btn btn--s">Contact us</button>
+								<a href="#contacts"><button class="prices-body-item__btn btn btn--s">Contact us</button></a>
 								<div class="prices-body-item__image"><img src="img/prices/01.png" alt="leafs"></div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</section>
-			<section class="contacts">
+			<section class="contacts" id="contacts">
 				<div class="container">
 					<h2 class="contacts__title">Contact us</h2>
 					<div class="contacts-body">
@@ -266,16 +266,18 @@
 						<div class="footer-body-item">
 							<div class="footer-body-item__column">©</div>
 							<div class="footer-body-item__column">2022</div>
-							<div class="footer-body-item__column"><a href="https://github.com/FreightDH">github</a></div>
+							<div class="footer-body-item__column"><a href="https://github.com/FreightDH"><span>github</span></a></div>
 						</div>
 					</div>
-					<div class="footer-body__column">Rolling Scopes School</div>
+					<div class="footer-body__column">
+						<a href="https://rs.school/js-stage0/"><span>Rolling Scopes School</span></a>
+					</div>
 					<div class="footer-body__column">
 						<div class="footer-body-links">
-							<a href="" class="footer-body-links__link"><img src="img/footer/01.svg" alt="inst"></a>
-							<a href="" class="footer-body-links__link"><img src="img/footer/02.svg" alt="fb"></a>
-							<a href="" class="footer-body-links__link"><img src="img/footer/03.svg" alt="tw"></a>
-							<a href="" class="footer-body-links__link"><img src="img/footer/04.svg" alt="pint"></a>
+							<a href="https://www.instagram.com" class="footer-body-links__link"><img src="img/footer/01.svg" alt="inst"></a>
+							<a href="https://ru-ru.facebook.com" class="footer-body-links__link"><img src="img/footer/02.svg" alt="fb"></a>
+							<a href="https://twitter.com" class="footer-body-links__link"><img src="img/footer/03.svg" alt="tw"></a>
+							<a href="https://ru.pinterest.com" class="footer-body-links__link"><img src="img/footer/04.svg" alt="pint"></a>
 						</div>
 					</div>
 				</div>

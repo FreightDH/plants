@@ -31,11 +31,6 @@ body {
   line-height: 1;
   font-family: "Inter";
   font-size: 20px;
-  -ms-text-size-adjust: 100%;
-  -moz-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 input,
@@ -80,6 +75,10 @@ h5,
 h6 {
   font-weight: inherit;
   font-size: inherit;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 .wrapper {
@@ -203,6 +202,10 @@ h6 {
   color: #000;
   font-size: 20px;
 }
+.footer-body__column span:hover {
+  text-decoration: underline;
+}
+
 .footer-body-item {
   display: flex;
   margin: 0 -10px;
@@ -294,6 +297,9 @@ h6 {
   line-height: 52px;
 }
 
+.service-body-header-list {
+  display: flex;
+}
 .service-body-header-list__item {
   cursor: pointer;
 }
