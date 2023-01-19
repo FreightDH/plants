@@ -16,4 +16,17 @@ function burger() {
 	});
 }
 
+function linkClick() {
+	$(document).ready(function () {
+		$(document).on('click', '.header-menu-list__link', function(event) {
+			if ($('.header-menu__menu').hasClass('active')) {
+				$('.header-menu__menu').removeClass('active');
+				$('.header-menu__icon').removeClass('active');
+				$('html, body').css('overflow', '');
+			}
+		});
+	});
+}
+
 burger();
+linkClick();
