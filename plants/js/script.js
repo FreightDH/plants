@@ -1,1 +1,19 @@
-console.log('1. Верстка валидная (10/10);\n2. Верстка семантическая (20/20);\n3. Верстка соответствует макету (48/48);\n4. Требования к css (12/12);\n5. Интерактивность, реализуемая через css (20/20);\n6. PixelPerfect соблюден.')
+function burger() {
+	$(document).ready(function() {
+		$(document).on('click', '.header-menu__icon', function(event) {
+			if ($('.header-menu__icon').hasClass('active')) {
+				$('.header-menu__menu').removeClass('active');
+				$('.header-menu__icon').removeClass('active');
+				$('html, body').css('overflow', '');
+			}
+			else {
+				$('.header-menu__menu').addClass('active');
+				$('.header-menu__icon').addClass('active');
+				$('html, body').css('overflow', 'hidden');
+			}
+			return false;
+		}); 
+	});
+}
+
+burger();
