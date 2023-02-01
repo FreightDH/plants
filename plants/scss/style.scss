@@ -41,6 +41,18 @@ $md4: 479.98px;
 html {
 	scroll-behavior: smooth;
 }
+
+body {
+	&.lock {
+		overflow: hidden;
+
+		@media (max-width: $md3) {
+			width: 100%;
+			position: fixed;
+			overflow: hidden;
+		}
+	}
+}
 //</ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>
 
 //<ОБОЛОЧКА>
@@ -404,6 +416,12 @@ html {
 		max-width: 280px;
 		max-height: 450px;
 		margin: 0px auto;
+	}
+
+	@include anim(0.3s, 0s);
+
+	&.blur {
+		filter: blur(2px);
 	}
 
 	&__img {
