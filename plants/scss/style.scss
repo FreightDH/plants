@@ -830,6 +830,7 @@ body {
 	height: 50px;
 	min-width: 450px;
 	position: relative;
+	user-select: none;
 	cursor: pointer;
 
 	background: #D6E7D2;
@@ -839,7 +840,7 @@ body {
 	@media (max-width: $md2) {
 		margin: 100px 0px 250px 0px;
 
-		// margin: 60px 0px 60px 0px; когда карточка 
+		// margin: 60px 0px 60px 0px;
 	}
 	@media (max-width: $md3) {
 		margin: 100px 0px 250px 0px;
@@ -853,6 +854,12 @@ body {
 		margin: 80px 0px 130px 0px;
 	}
 
+	&.active {
+		@include anim(0.3s, 0s);
+		box-shadow: none;
+		background-color: #C1E698;	
+	}
+
 	&__placeholder {
 		padding: 0px 0px 0px 22px;
 
@@ -860,6 +867,13 @@ body {
 		font-size: 20px;
 		line-height: 50px;
 		letter-spacing: 0.05em;
+
+		&.active {
+			&::after {
+				@include anim(0.3s, 0s);
+				transform: rotate(180deg);
+			}
+		}
 
 		&::after {
 			content: '';
@@ -881,6 +895,10 @@ body {
 	display: none;
 	padding: 25px 0px 0px 0px;
 	background-color: #DCE9D9;
+
+	&.active {
+		display: block;
+	}
 
 	&__option {
 		padding: 0px 0px 0px 34px;
@@ -912,8 +930,7 @@ body {
 }
 .contacts-body-card {
 	padding: 17px 0px 5px 35px;
-
-	display: flex;
+	display: none;
 	
 	border: 1px solid #000000;
 	border-radius: 20px;	
@@ -961,19 +978,6 @@ body {
 			color: #fff;
 		}
 	}
-}
-// display: flex 
-#canandaigua {
-	display: none;
-}
-#newyork {
-	display: none;
-}
-#yonkers {
-	display: none;
-}
-#sherrill {
-	display: none;
 }
 //-------------------------------------------------------
 //-------------------------------------------------------
