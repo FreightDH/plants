@@ -151,6 +151,7 @@ body.lock {
   display: flex;
   justify-content: space-between;
 }
+
 .logo {
   display: flex;
   align-items: flex-end;
@@ -449,6 +450,7 @@ body.lock {
     padding: 20px 0px 25px 0px;
   }
 }
+
 .about {
   padding: 85px 0;
 }
@@ -568,7 +570,7 @@ body.lock {
 }
 @media (max-width: 479.98px) {
   .service {
-    padding: 30px 0 0 0;
+    padding: 30px 0px 0px 0px;
   }
 }
 
@@ -747,6 +749,7 @@ body.lock {
     align-items: center;
   }
 }
+
 .prices-body-item__title {
   max-width: 460px;
   color: #000;
@@ -846,11 +849,15 @@ body.lock {
 }
 
 .prices-body-item-buttons {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   margin: 60px 0px 0px 0px;
   padding: 33px 40px;
   border: 1px solid #E3E1D5;
   border-radius: 20px;
-  position: relative;
+  cursor: pointer;
 }
 @media (max-width: 992.98px) {
   .prices-body-item-buttons {
@@ -881,6 +888,13 @@ body.lock {
   text-align: left;
   position: relative;
 }
+.prices-body-item-buttons__button.active {
+  background-color: #D6E7D2;
+}
+.prices-body-item-buttons__button.active::after {
+  transition: all 0.1s ease 0s;
+  transform: rotate(180deg);
+}
 .prices-body-item-buttons__button::after {
   content: "";
   position: absolute;
@@ -900,12 +914,26 @@ body.lock {
     line-height: 20px;
   }
 }
+.prices-body-item-buttons__button.button--t {
+  margin: 0px 0px 32px 0px;
+}
+.prices-body-item-buttons__button.button--t.active {
+  margin: 0px 0px 0px 0px;
+}
+@media (max-width: 479.98px) {
+  .prices-body-item-buttons__button.button--t {
+    margin: 0px 0px 14px 0px;
+  }
+}
 .prices-body-item-buttons__button.button--c {
-  margin: 32px 0px 32px 0px;
+  margin: 0px 0px 32px 0px;
+}
+.prices-body-item-buttons__button.button--c.active {
+  margin: 0px 0px 0px 0px;
 }
 @media (max-width: 479.98px) {
   .prices-body-item-buttons__button.button--c {
-    margin: 14px 0px 14px 0px;
+    margin: 0px 0px 14px 0px;
   }
 }
 .prices-body-item-buttons__button.button--b {
@@ -914,13 +942,29 @@ body.lock {
 
 .card {
   display: none;
+  margin: -50px 0px 0px 0px;
   padding: 0 40px;
-  min-height: 140px;
   width: 250px;
   background: #D6E7D2;
   border-radius: 20px;
-  position: absolute;
-  top: 0px;
+}
+@media (max-width: 479.98px) {
+  .card {
+    width: 180px;
+    padding: 0 30px;
+  }
+}
+.card.active {
+  display: block;
+  margin: -50px 0px 32px 0px;
+}
+@media (max-width: 479.98px) {
+  .card.active {
+    margin: -50px 0px 14px 0px;
+  }
+}
+.card.procare.active {
+  margin: -50px 0px 0px 0px;
 }
 .card__title {
   cursor: pointer;
@@ -930,6 +974,11 @@ body.lock {
   line-height: 50px;
   text-align: left;
   position: relative;
+}
+@media (max-width: 479.98px) {
+  .card__title {
+    font-size: 15px;
+  }
 }
 .card__title::after {
   content: "";
@@ -942,6 +991,11 @@ body.lock {
   background: url(../img/prices/arrow.svg) #D9D9D9 center no-repeat;
   transform: rotate(-180deg);
 }
+@media (max-width: 479.98px) {
+  .card__title::after {
+    right: 10px;
+  }
+}
 .card__title::before {
   content: "";
   position: absolute;
@@ -950,6 +1004,11 @@ body.lock {
   bottom: 7px;
   left: 0;
   background-color: #AEA1A1;
+}
+@media (max-width: 479.98px) {
+  .card__title::before {
+    width: 103px;
+  }
 }
 .card__text {
   font-weight: 300;
@@ -982,18 +1041,6 @@ body.lock {
   background-color: #EDF2EC;
 }
 
-.basics {
-  display: none;
-}
-
-.standard {
-  display: none;
-}
-
-.procare {
-  display: none;
-}
-
 .contacts {
   padding: 60px 0px 0px 0px;
   background-color: #EDF2EC;
@@ -1021,9 +1068,6 @@ body.lock {
     font-size: 25px;
     line-height: 33px;
   }
-}
-.contacts select {
-  display: none;
 }
 
 .contacts-body {
@@ -1061,6 +1105,12 @@ body.lock {
   }
 }
 
+@media (max-width: 479.98px) {
+  .contacts__img.active {
+    display: none;
+  }
+}
+
 .contacts-body-list {
   margin: 35px 0px 45px 0px;
   height: 50px;
@@ -1090,6 +1140,11 @@ body.lock {
   transition: all 0.3s ease 0s;
   box-shadow: none;
   background-color: #C1E698;
+}
+@media (max-width: 992.98px) {
+  .contacts-body-list.active {
+    margin: 100px 0px 250px 0px;
+  }
 }
 .contacts-body-list__placeholder {
   padding: 0px 0px 0px 22px;
@@ -1125,12 +1180,14 @@ body.lock {
 }
 
 .contacts-body-list-options {
-  display: none;
-  padding: 25px 0px 0px 0px;
+  max-height: 0px;
+  overflow: hidden;
   background-color: #DCE9D9;
+  transition: all 0.3s ease 0s;
 }
 .contacts-body-list-options.active {
-  display: block;
+  padding: 25px 0px 0px 0px;
+  max-height: 234px;
 }
 .contacts-body-list-options__option {
   padding: 0px 0px 0px 34px;
@@ -1163,14 +1220,22 @@ body.lock {
 
 .contacts-body-card {
   padding: 17px 0px 5px 35px;
-  visibility: hidden;
-  display: flex;
+  display: none;
   border: 1px solid #000000;
   border-radius: 20px;
+  transition: all 0.3s ease 0s;
 }
 @media (max-width: 479.98px) {
   .contacts-body-card {
     padding: 23px 36px;
+  }
+}
+.contacts-body-card.active {
+  display: flex;
+}
+@media (max-width: 479.98px) {
+  .contacts-body-card.active {
+    margin: 0px 0px 33px 0px;
   }
 }
 .contacts-body-card__title {

@@ -21,7 +21,7 @@ function filter() {
 		document.getElementsByClassName('lawn'), 
 		document.getElementsByClassName('planting')
 	);
-
+	
 	$('.service-body-header-list__item').click(function (event) { 
 		let i = $(this).data('filter');
 		$(btnArr[i]).toggleClass('active');
@@ -77,12 +77,43 @@ function filter() {
 			}
 		}
 
-		if (!$(btnArr[0]).hasClass('active') && !$(btnArr[1]).hasClass('active') && !$(btnArr[2]).hasClass('active')) {
-			$(cardsArr[0]).removeClass('blur');
-			$(cardsArr[1]).removeClass('blur');
-			$(cardsArr[2]).removeClass('blur');
+		let count = 0;
+		btnArr.forEach( (button) => $(button).hasClass('active') ? count++ : false);
+		if (count === btnArr.length) {
+			btnArr.forEach(button => $(button).removeClass('active'));
 		}
 	});
+}
+
+function prices() {
+	let btnArr = document.querySelectorAll('.prices-body-item-buttons__button');
+	let cardArr = document.querySelectorAll('.prices-body-item-buttons-card');
+
+	for (let button of btnArr) {
+		$(button).click(function (event) {
+			for (let c of cardArr) {
+				$(c).removeClass('active');
+			}
+
+			for (let btn of btnArr) {
+				$(btn).removeClass('active');
+			}
+
+			$(button).addClass('active');
+			let card = this.nextElementSibling;
+
+			if ($(button).hasClass('active')) {
+				$(card).addClass('active');
+			} else {
+				$(card).removeClass('active');
+			}
+
+			$('.card__title').click(function (event) { 
+				$(card).removeClass('active');
+				$(button).removeClass('active');
+			});
+		});
+	}
 }
 
 function contacts() {
@@ -97,7 +128,6 @@ function contacts() {
 	let phone = document.querySelector('.card__phone');
 	let adress = document.querySelector('.card__adress');
 	let button = document.querySelector('.contacts-body-card__btn');
-	let image = document.querySelector('.contacts__img');
 
 	$('.contacts-body-list').click(function (event) { // раскрытие списка
 		$('.contacts-body-list').toggleClass('active');
@@ -105,14 +135,18 @@ function contacts() {
 		$('.contacts-body-list-options').toggleClass('active');
 
 		if ($('.contacts-body-list').hasClass('active')) {
-			$('.contacts-body-card').css('visibility', 'hidden');
+			$('.contacts-body-card').removeClass('active');
+			$('.contacts__img').removeClass('active');
 			placeholder.textContent = 'City';
+		} else {
+			$('.contacts-body-card').addClass('active');
 		}
 	});
 
 	$('.contacts-body-list-options__option').click(function (event) { // отслеживание выбора города из списка
 		let selected = $(this).data('value');
-		$('.contacts-body-card').css('visibility', 'visible');		
+		$('.contacts-body-card').addClass('active');
+		$('.contacts__img').addClass('active');
 		
 		placeholder.textContent = cityObj[selected][0]; // заполнение карточки
 		city.textContent = cityObj[selected][0];
@@ -120,9 +154,15 @@ function contacts() {
 		adress.textContent = cityObj[selected][2];
 		button.href = 'tel:' + cityObj[selected][3];
 	});
+
+	if (window.screen.width < 993) {
+
+	}
 }
 
 burger();
 filter();
+prices();
 contacts();
-// console.log('1. Вёрстка соответствует макету. Ширина экрана 768px. (24/24)\n2. Вёрстка соответствует макету. Ширина экрана 380px. (24/24)\n3. Ни на одном из разрешений до 320px включительно не появляется горизонтальная полоса прокрутки. (15/15)\n4. На ширине экрана 380рх и меньше реализовано адаптивное меню. (22/22)\nИтого: 85 баллов')
+
+console.log('1. При нажатии на кнопки: Gardens, Lawn, Planting происходит смена фокуса на услугах в разделе service (50/50)\n2. Accordion в секции prices, реализация 3-х выпадающих списков об услугах и ценах (50/50)\n3. В разделе contacts реализован select с выбором городов (25/25)\nИтого: 125 баллов')

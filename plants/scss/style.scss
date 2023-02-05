@@ -104,9 +104,6 @@ body {
 	display: flex;
 	justify-content: space-between;
 
-	&__column {
-	}
-
 	&__img {
 		img {
 			width: 100%;
@@ -178,9 +175,6 @@ body {
 			padding: 20px 0px 25px 0px;
 		}
 	}
-
-	&__btn {
-	}
 }
 //-------------------------------------------------------
 .about {
@@ -197,10 +191,6 @@ body {
 .about-body {
 	display: flex;
 	justify-content: space-between;
-
-	&__column {
-		
-	}
 
 	&__img {
 		@media (max-width: $md3) {
@@ -298,10 +288,8 @@ body {
 	}
 
 	@media (max-width: $md4) {
-		padding: 30px 0 0 0;
+		padding: 30px 0px 0px 0px;
 	}
-}
-.service-body {
 }
 .service-body-header {
 	margin: 0px 0px 75px 0px;
@@ -311,13 +299,6 @@ body {
 	@media (max-width: $md2) {
 		flex-wrap: wrap;
 		margin: 0px 0px 0px 0px;
-	}
-
-	@media (max-width: $md4) {
-
-	}
-
-	&__column {
 	}
 
 	&__title {
@@ -435,9 +416,6 @@ body {
 		}
 	}
 
-	&__border {
-	}
-
 	&__title {
 		padding: 10px 0px 0px 0px;
 
@@ -485,9 +463,6 @@ body {
 		flex-direction: column;	
 		justify-content: center;
 		align-items: center;
-	}
-
-	&__column {
 	}
 }
 .prices-body-item {
@@ -587,23 +562,25 @@ body {
 		}
 	}
 }
+
 .prices-body-item-buttons {
+	user-select: none;
 	margin: 60px 0px 0px 0px;
 	padding: 33px 40px;
 
 	border: 1px solid #E3E1D5;
 	border-radius: 20px;
+	
+	cursor: pointer;
 
-	position: relative;
-
-	@media (max-width: $md2) {
-		margin: 50px 0px 0px 0px;
+	@media (max-width: $md2) {			
+		margin: 50px 0px 0px 0px;		
 	}
-
+		
 	@media (max-width: 700px) {
 		margin: 35px 0px 0px 0px;
 	}
-
+		
 	@media (max-width: $md4) {
 		padding: 29px 22px;
 	}
@@ -625,6 +602,14 @@ body {
 
 		position: relative;
 
+		&.active {
+			background-color: #D6E7D2;
+			&::after {
+				@include anim(0.1s, 0s);
+				transform: rotate(180deg);
+			}
+		}
+
 		&::after {
 			content: '';
 			position: absolute;
@@ -635,50 +620,72 @@ body {
 			border-radius: 50%;
 			background: url(../img/prices/arrow.svg) #D9D9D9 center no-repeat;
 		}
-
+			
 		@media (max-width: $md4) {
 			min-height: 50px;
 			width: 180px;
 			padding: 0px 40px 0px 30px;
-			
+						
 			font-size: 15px;
 			line-height: 20px;
 		}
+		
+		&.button--t {
+			margin: 0px 0px 32px 0px;
 
-		&.button--c {
-			margin: 32px 0px 32px 0px;
-
-			// basics - mmt 124, mmb 32
-			// standard - mmt 32, mmb 124
+			&.active {
+				margin: 0px 0px 0px 0px;
+			}
 
 			@media (max-width: $md4) {
-				margin: 14px 0px 14px 0px;
+				margin: 0px 0px 14px 0px;
 			}
 		}
+		
+		&.button--c {
+			margin: 0px 0px 32px 0px;
+			
+			&.active {
+				margin: 0px 0px 0px 0px;
+			}
+
+			@media (max-width: $md4) {
+				margin: 0px 0px 14px 0px;
+			}
+ 		}
+
 		&.button--b {
 			margin: 0px 0px 0px 0px;
-
-			// pro care - mmt 0, mmb 93 
 		}
 	}
 }
-.prices-body-item-buttons-card {
-}
 .card {
 	display: none;
+	margin: -50px 0px 0px 0px;
 	padding: 0 40px;
-	min-height: 140px;
 	width: 250px;
 
 	background: #D6E7D2;
 	border-radius: 20px;
 
-	position: absolute;
-	top: 0px;
+	@media (max-width: $md4) {
+		width: 180px;
+		padding: 0 30px;
+	}
 
-	// basics 34
-	// standard 116
-	// procare 198
+	&.active {
+		display: block;
+
+		margin: -50px 0px 32px 0px;
+
+		@media (max-width: $md4) {
+			margin: -50px 0px 14px 0px;
+		}
+	}
+
+	&.procare.active {
+		margin: -50px 0px 0px 0px;
+	}
 
 	&__title {
 		cursor: pointer;
@@ -690,6 +697,10 @@ body {
 
 		position: relative;
 
+		@media (max-width: $md4) {
+			font-size: 15px;
+		}
+
 		&::after {
 			content: '';
 			position: absolute;
@@ -700,6 +711,10 @@ body {
 			border-radius: 50%;
 			background: url(../img/prices/arrow.svg) #D9D9D9 center no-repeat;
 			transform: rotate(-180deg);
+
+			@media (max-width: $md4) {
+				right: 10px;
+			}
 		}
 
 		&::before {
@@ -710,6 +725,11 @@ body {
 			bottom: 7px;
 			left: 0;
 			background-color: #AEA1A1;
+
+			@media (max-width: $md4) {
+				// bottom: 0;
+				width: 103px;
+			}
 		}
 	}
 
@@ -750,16 +770,6 @@ body {
 		}
 	}
 }
-.basics {
-	display: none;
-} 
-.standard {
-	display: none;
-} 
-.procare {
-	display: none;
-}
-
 //-------------------------------------------------------
 .contacts {
 	padding: 60px 0px 0px 0px;
@@ -786,9 +796,6 @@ body {
 			line-height: 33px;
 		}	
 	}
-	select {
-		display: none;
-	}
 }
 .contacts-body {
 	display: flex;
@@ -797,9 +804,6 @@ body {
 	@media (max-width: $md2) {
 		flex-direction: column-reverse;	
 		align-items: center;
-	}
-	
-	&__column {
 	}
 
 	&__img {
@@ -825,6 +829,13 @@ body {
 		}
 	}
 }
+.contacts__img {
+	&.active {
+		@media (max-width: $md4) {
+			display: none;
+		}
+	}
+}
 .contacts-body-list {
 	margin: 35px 0px 45px 0px;
 	height: 50px;
@@ -839,8 +850,6 @@ body {
 
 	@media (max-width: $md2) {
 		margin: 60px 0px 60px 0px;
-
-		// margin: 60px 0px 60px 0px;
 	}
 
 	@media (max-width: $md4) {
@@ -852,7 +861,11 @@ body {
 	&.active {
 		@include anim(0.3s, 0s);
 		box-shadow: none;
-		background-color: #C1E698;	
+		background-color: #C1E698;
+		
+		@media (max-width: $md2) {
+			margin: 100px 0px 250px 0px;
+		}
 	}
 
 	&__placeholder {
@@ -892,12 +905,15 @@ body {
 	}
 }
 .contacts-body-list-options {
-	display: none;
-	padding: 25px 0px 0px 0px;
+	max-height: 0px;
+	overflow: hidden;
 	background-color: #DCE9D9;
 
+	@include anim(0.3s, 0s);
+
 	&.active {
-		display: block;
+		padding: 25px 0px 0px 0px;
+		max-height: 234px;
 	}
 
 	&__option {
@@ -934,8 +950,7 @@ body {
 }
 .contacts-body-card {
 	padding: 17px 0px 5px 35px;
-	visibility: hidden;
-	display: flex;
+	display: none;
 	
 	border: 1px solid #000000;
 	border-radius: 20px;	
@@ -943,8 +958,12 @@ body {
 	@media (max-width: $md4) {
 		padding: 23px 36px;
 	}
-	
-	&__column {
+	@include anim(0.3s, 0s);
+	&.active {
+		display: flex;
+		@media (max-width: $md4) {
+			margin: 0px 0px 33px 0px;	
+		}
 	}
 
 	&__title {
