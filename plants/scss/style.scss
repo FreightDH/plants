@@ -41,6 +41,18 @@ $md4: 479.98px;
 html {
 	scroll-behavior: smooth;
 }
+
+body {
+	&.lock {
+		overflow: hidden;
+
+		@media (max-width: $md3) {
+			width: 100%;
+			position: fixed;
+			overflow: hidden;
+		}
+	}
+}
 //</ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>
 
 //<ОБОЛОЧКА>
@@ -91,9 +103,6 @@ html {
 .welcome-body {
 	display: flex;
 	justify-content: space-between;
-
-	&__column {
-	}
 
 	&__img {
 		img {
@@ -166,9 +175,6 @@ html {
 			padding: 20px 0px 25px 0px;
 		}
 	}
-
-	&__btn {
-	}
 }
 //-------------------------------------------------------
 .about {
@@ -185,10 +191,6 @@ html {
 .about-body {
 	display: flex;
 	justify-content: space-between;
-
-	&__column {
-		
-	}
 
 	&__img {
 		@media (max-width: $md3) {
@@ -286,10 +288,8 @@ html {
 	}
 
 	@media (max-width: $md4) {
-		padding: 30px 0 0 0;
+		padding: 30px 0px 0px 0px;
 	}
-}
-.service-body {
 }
 .service-body-header {
 	margin: 0px 0px 75px 0px;
@@ -299,13 +299,6 @@ html {
 	@media (max-width: $md2) {
 		flex-wrap: wrap;
 		margin: 0px 0px 0px 0px;
-	}
-
-	@media (max-width: $md4) {
-
-	}
-
-	&__column {
 	}
 
 	&__title {
@@ -406,6 +399,12 @@ html {
 		margin: 0px auto;
 	}
 
+	@include anim(0.3s, 0s);
+
+	&.blur {
+		filter: blur(2px);
+	}
+
 	&__img {
 		img {
 			max-width: 100%;
@@ -415,9 +414,6 @@ html {
 				height: 350px;
 			}
 		}
-	}
-
-	&__border {
 	}
 
 	&__title {
@@ -467,9 +463,6 @@ html {
 		flex-direction: column;	
 		justify-content: center;
 		align-items: center;
-	}
-
-	&__column {
 	}
 }
 .prices-body-item {
@@ -569,23 +562,25 @@ html {
 		}
 	}
 }
+
 .prices-body-item-buttons {
+	user-select: none;
 	margin: 60px 0px 0px 0px;
 	padding: 33px 40px;
 
 	border: 1px solid #E3E1D5;
 	border-radius: 20px;
+	
+	cursor: pointer;
 
-	position: relative;
-
-	@media (max-width: $md2) {
-		margin: 50px 0px 0px 0px;
+	@media (max-width: $md2) {			
+		margin: 50px 0px 0px 0px;		
 	}
-
+		
 	@media (max-width: 700px) {
 		margin: 35px 0px 0px 0px;
 	}
-
+		
 	@media (max-width: $md4) {
 		padding: 29px 22px;
 	}
@@ -607,6 +602,14 @@ html {
 
 		position: relative;
 
+		&.active {
+			background-color: #D6E7D2;
+			&::after {
+				@include anim(0.1s, 0s);
+				transform: rotate(180deg);
+			}
+		}
+
 		&::after {
 			content: '';
 			position: absolute;
@@ -617,50 +620,72 @@ html {
 			border-radius: 50%;
 			background: url(../img/prices/arrow.svg) #D9D9D9 center no-repeat;
 		}
-
+			
 		@media (max-width: $md4) {
 			min-height: 50px;
 			width: 180px;
 			padding: 0px 40px 0px 30px;
-			
+						
 			font-size: 15px;
 			line-height: 20px;
 		}
+		
+		&.button--t {
+			margin: 0px 0px 32px 0px;
 
-		&.button--c {
-			margin: 32px 0px 32px 0px;
-
-			// basics - mmt 124, mmb 32
-			// standard - mmt 32, mmb 124
+			&.active {
+				margin: 0px 0px 0px 0px;
+			}
 
 			@media (max-width: $md4) {
-				margin: 14px 0px 14px 0px;
+				margin: 0px 0px 14px 0px;
 			}
 		}
+		
+		&.button--c {
+			margin: 0px 0px 32px 0px;
+			
+			&.active {
+				margin: 0px 0px 0px 0px;
+			}
+
+			@media (max-width: $md4) {
+				margin: 0px 0px 14px 0px;
+			}
+ 		}
+
 		&.button--b {
 			margin: 0px 0px 0px 0px;
-
-			// pro care - mmt 0, mmb 93 
 		}
 	}
 }
-.prices-body-item-buttons-card {
-}
 .card {
 	display: none;
+	margin: -50px 0px 0px 0px;
 	padding: 0 40px;
-	min-height: 140px;
 	width: 250px;
 
 	background: #D6E7D2;
 	border-radius: 20px;
 
-	position: absolute;
-	top: 0px;
+	@media (max-width: $md4) {
+		width: 180px;
+		padding: 0 30px;
+	}
 
-	// basics 34
-	// standard 116
-	// procare 198
+	&.active {
+		display: block;
+
+		margin: -50px 0px 32px 0px;
+
+		@media (max-width: $md4) {
+			margin: -50px 0px 14px 0px;
+		}
+	}
+
+	&.procare.active {
+		margin: -50px 0px 0px 0px;
+	}
 
 	&__title {
 		cursor: pointer;
@@ -672,6 +697,10 @@ html {
 
 		position: relative;
 
+		@media (max-width: $md4) {
+			font-size: 15px;
+		}
+
 		&::after {
 			content: '';
 			position: absolute;
@@ -682,6 +711,10 @@ html {
 			border-radius: 50%;
 			background: url(../img/prices/arrow.svg) #D9D9D9 center no-repeat;
 			transform: rotate(-180deg);
+
+			@media (max-width: $md4) {
+				right: 10px;
+			}
 		}
 
 		&::before {
@@ -692,6 +725,11 @@ html {
 			bottom: 7px;
 			left: 0;
 			background-color: #AEA1A1;
+
+			@media (max-width: $md4) {
+				// bottom: 0;
+				width: 103px;
+			}
 		}
 	}
 
@@ -732,16 +770,6 @@ html {
 		}
 	}
 }
-.basics {
-	display: none;
-} 
-.standard {
-	display: none;
-} 
-.procare {
-	display: none;
-}
-
 //-------------------------------------------------------
 .contacts {
 	padding: 60px 0px 0px 0px;
@@ -768,9 +796,6 @@ html {
 			line-height: 33px;
 		}	
 	}
-	select {
-		display: none;
-	}
 }
 .contacts-body {
 	display: flex;
@@ -779,9 +804,6 @@ html {
 	@media (max-width: $md2) {
 		flex-direction: column-reverse;	
 		align-items: center;
-	}
-	
-	&__column {
 	}
 
 	&__img {
@@ -807,11 +829,19 @@ html {
 		}
 	}
 }
+.contacts__img {
+	&.active {
+		@media (max-width: $md4) {
+			display: none;
+		}
+	}
+}
 .contacts-body-list {
 	margin: 35px 0px 45px 0px;
 	height: 50px;
 	min-width: 450px;
 	position: relative;
+	user-select: none;
 	cursor: pointer;
 
 	background: #D6E7D2;
@@ -819,20 +849,23 @@ html {
 	border-radius: 0px;
 
 	@media (max-width: $md2) {
-		margin: 100px 0px 250px 0px;
-
-		// margin: 60px 0px 60px 0px; когда карточка 
-	}
-	@media (max-width: $md3) {
-		margin: 100px 0px 250px 0px;
-
-		// margin: 60px 0px 60px 0px; когда карточка 
+		margin: 60px 0px 60px 0px;
 	}
 
 	@media (max-width: $md4) {
 		min-width: 300px;
 
-		margin: 80px 0px 130px 0px;
+		margin: 42px 0px 49px 0px;
+	}
+
+	&.active {
+		@include anim(0.3s, 0s);
+		box-shadow: none;
+		background-color: #C1E698;
+		
+		@media (max-width: $md2) {
+			margin: 100px 0px 250px 0px;
+		}
 	}
 
 	&__placeholder {
@@ -842,6 +875,18 @@ html {
 		font-size: 20px;
 		line-height: 50px;
 		letter-spacing: 0.05em;
+
+		@media (max-width: $md4) {
+			font-size: 16px;
+		}
+
+		&.active {
+			&::after {
+				@include anim(0.3s, 0s);
+				transform: rotate(180deg);
+				background-color: #8BA07E;
+			}
+		}
 
 		&::after {
 			content: '';
@@ -860,9 +905,16 @@ html {
 	}
 }
 .contacts-body-list-options {
-	display: none;
-	padding: 25px 0px 0px 0px;
+	max-height: 0px;
+	overflow: hidden;
 	background-color: #DCE9D9;
+
+	@include anim(0.3s, 0s);
+
+	&.active {
+		padding: 25px 0px 0px 0px;
+		max-height: 234px;
+	}
 
 	&__option {
 		padding: 0px 0px 0px 34px;
@@ -881,6 +933,10 @@ html {
 			bottom: 7px;
 			left: 35px;
 			background-color: #D9D9D9;
+
+			@media (max-width: $md4) {
+				width: 250px;
+			}
 		}
 
 		&:hover {
@@ -894,13 +950,20 @@ html {
 }
 .contacts-body-card {
 	padding: 17px 0px 5px 35px;
-
-	display: flex;
+	display: none;
 	
 	border: 1px solid #000000;
 	border-radius: 20px;	
-	
-	&__column {
+
+	@media (max-width: $md4) {
+		padding: 23px 36px;
+	}
+	@include anim(0.3s, 0s);
+	&.active {
+		display: flex;
+		@media (max-width: $md4) {
+			margin: 0px 0px 33px 0px;	
+		}
 	}
 
 	&__title {
@@ -910,6 +973,16 @@ html {
 		font-size: 16px;
 		line-height: 40px;
 		letter-spacing: 0.05em;
+
+		@media (max-width: $md4) {
+			max-width: 65px;
+		}
+
+		&.adress {
+			@media (max-width: $md4) {
+				line-height:normal;
+			}
+		}
 	}
 
 	&__text {
@@ -917,6 +990,16 @@ html {
 		font-size: 16px;
 		line-height: 40px;
 		letter-spacing: 0.05em;
+
+		@media (max-width: $md4) {
+			max-width: 145px;
+		}
+
+		&.adress {
+			@media (max-width: $md4) {
+				line-height: normal;
+			}
+		}
 	}
 
 	&__btn {
@@ -938,24 +1021,15 @@ html {
 
 		@include anim(0.3s, 0s);
 
+		@media (max-width: $md4) {
+			margin: 17px 0px 0px 0px;
+		}
+
 		&:hover {
 			background-color: #E06733;
 			color: #fff;
 		}
 	}
-}
-// display: flex 
-#canandaigua {
-	display: none;
-}
-#newyork {
-	display: none;
-}
-#yonkers {
-	display: none;
-}
-#sherrill {
-	display: none;
 }
 //-------------------------------------------------------
 //-------------------------------------------------------

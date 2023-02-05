@@ -60,7 +60,7 @@
 		}
 	}
 
-	&:hover {
+	&.active, &:hover {
 		background-color: #E06733;
 		color: #fff;
 	}
