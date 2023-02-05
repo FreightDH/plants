@@ -1077,18 +1077,13 @@ body.lock {
 }
 @media (max-width: 992.98px) {
   .contacts-body-list {
-    margin: 100px 0px 250px 0px;
-  }
-}
-@media (max-width: 768px) {
-  .contacts-body-list {
-    margin: 100px 0px 250px 0px;
+    margin: 60px 0px 60px 0px;
   }
 }
 @media (max-width: 479.98px) {
   .contacts-body-list {
     min-width: 300px;
-    margin: 80px 0px 130px 0px;
+    margin: 42px 0px 49px 0px;
   }
 }
 .contacts-body-list.active {
@@ -1103,9 +1098,15 @@ body.lock {
   line-height: 50px;
   letter-spacing: 0.05em;
 }
+@media (max-width: 479.98px) {
+  .contacts-body-list__placeholder {
+    font-size: 16px;
+  }
+}
 .contacts-body-list__placeholder.active::after {
   transition: all 0.3s ease 0s;
   transform: rotate(180deg);
+  background-color: #8BA07E;
 }
 .contacts-body-list__placeholder::after {
   content: "";
@@ -1148,6 +1149,11 @@ body.lock {
   left: 35px;
   background-color: #D9D9D9;
 }
+@media (max-width: 479.98px) {
+  .contacts-body-list-options__option::after {
+    width: 250px;
+  }
+}
 .contacts-body-list-options__option:hover {
   color: #717171;
 }
@@ -1157,9 +1163,15 @@ body.lock {
 
 .contacts-body-card {
   padding: 17px 0px 5px 35px;
-  display: none;
+  visibility: hidden;
+  display: flex;
   border: 1px solid #000000;
   border-radius: 20px;
+}
+@media (max-width: 479.98px) {
+  .contacts-body-card {
+    padding: 23px 36px;
+  }
 }
 .contacts-body-card__title {
   margin: 0px 5px 0px 0px;
@@ -1168,11 +1180,31 @@ body.lock {
   line-height: 40px;
   letter-spacing: 0.05em;
 }
+@media (max-width: 479.98px) {
+  .contacts-body-card__title {
+    max-width: 65px;
+  }
+}
+@media (max-width: 479.98px) {
+  .contacts-body-card__title.adress {
+    line-height: normal;
+  }
+}
 .contacts-body-card__text {
   color: #717171;
   font-size: 16px;
   line-height: 40px;
   letter-spacing: 0.05em;
+}
+@media (max-width: 479.98px) {
+  .contacts-body-card__text {
+    max-width: 145px;
+  }
+}
+@media (max-width: 479.98px) {
+  .contacts-body-card__text.adress {
+    line-height: normal;
+  }
 }
 .contacts-body-card__btn {
   display: inline-block;
@@ -1189,6 +1221,11 @@ body.lock {
   line-height: 26px;
   text-align: center;
   transition: all 0.3s ease 0s;
+}
+@media (max-width: 479.98px) {
+  .contacts-body-card__btn {
+    margin: 17px 0px 0px 0px;
+  }
 }
 .contacts-body-card__btn:hover {
   background-color: #E06733;

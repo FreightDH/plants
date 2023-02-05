@@ -22,59 +22,103 @@ function filter() {
 		document.getElementsByClassName('planting')
 	);
 
-	console.log(cardsArr);
-
 	$('.service-body-header-list__item').click(function (event) { 
 		let i = $(this).data('filter');
 		$(btnArr[i]).toggleClass('active');
-		
+
 		switch(i) {
 			case 0: {
+				if ($(btnArr[0]).hasClass('active')) {
+					$(cardsArr[0]).removeClass('blur');
+		
+					if (!$(btnArr[1]).hasClass('active')) {
+						$(cardsArr[1]).addClass('blur');
+					} 
+		
+					if (!$(btnArr[2]).hasClass('active')) {
+						$(cardsArr[2]).addClass('blur');
+					} 
+				} else {
+					$(cardsArr[0]).addClass('blur');
+				}
 				break;
 			}
 			case 1: {
+				if ($(btnArr[1]).hasClass('active')) {
+					$(cardsArr[1]).removeClass('blur');
+		
+					if (!$(btnArr[0]).hasClass('active')) {
+						$(cardsArr[0]).addClass('blur');
+					} 
+		
+					if (!$(btnArr[2]).hasClass('active')) {
+						$(cardsArr[2]).addClass('blur');
+					}
+				} else {
+					$(cardsArr[1]).addClass('blur');
+				}
 				break;
 			}
 			case 2: {
+				if ($(btnArr[2]).hasClass('active')) {
+					$(cardsArr[2]).removeClass('blur');
+		
+					if (!$(btnArr[0]).hasClass('active')) {
+						$(cardsArr[0]).addClass('blur');
+					} 
+		
+					if (!$(btnArr[1]).hasClass('active')) {
+						$(cardsArr[1]).addClass('blur');
+					} 
+				} else {
+					$(cardsArr[2]).addClass('blur');
+				}
 				break;
 			}
+		}
+
+		if (!$(btnArr[0]).hasClass('active') && !$(btnArr[1]).hasClass('active') && !$(btnArr[2]).hasClass('active')) {
+			$(cardsArr[0]).removeClass('blur');
+			$(cardsArr[1]).removeClass('blur');
+			$(cardsArr[2]).removeClass('blur');
 		}
 	});
 }
 
 function contacts() {
 	let cityObj = {
-		'canandaigua': ['Canandaigua, NY', '+1 585 393 0001', '151 Charlotte Street'],
-		'newyork': ['New York City', '+1 212 456 0002', '9 East 91st Street'],
-		'yonkers': ['Yonkers, NY', '+1 914 678 0003', '511 Warburton Ave'],
-		'sherrill': ['Sherrill, NY', '+1 315 908 0004', '14 WEST Noyes BLVD'],
+		'canandaigua': ['Canandaigua, NY', '+1 585 393 0001', '151 Charlotte Street', '15853930001'],
+		'newyork': ['New York City', '+1 212 456 0002', '9 East 91st Street', '12124560002'],
+		'yonkers': ['Yonkers, NY', '+1 914 678 0003', '511 Warburton Ave', '19146780003'],
+		'sherrill': ['Sherrill, NY', '+1 315 908 0004', '14 WEST Noyes BLVD', '13159080004'],
 	}
 	let placeholder = document.querySelector('.contacts-body-list__placeholder');
 	let city = document.querySelector('.card__city');
 	let phone = document.querySelector('.card__phone');
 	let adress = document.querySelector('.card__adress');
+	let button = document.querySelector('.contacts-body-card__btn');
+	let image = document.querySelector('.contacts__img');
 
-	$('.contacts-body-list').click(function (event) { 
+	$('.contacts-body-list').click(function (event) { // раскрытие списка
 		$('.contacts-body-list').toggleClass('active');
 		$('.contacts-body-list__placeholder').toggleClass('active');
 		$('.contacts-body-list-options').toggleClass('active');
 
 		if ($('.contacts-body-list').hasClass('active')) {
-			$('.contacts-body-card').css('display', 'none');
+			$('.contacts-body-card').css('visibility', 'hidden');
+			placeholder.textContent = 'City';
 		}
 	});
 
-	$('.contacts-body-list-options__option').click(function (event) { 
+	$('.contacts-body-list-options__option').click(function (event) { // отслеживание выбора города из списка
 		let selected = $(this).data('value');
-		$('.contacts-body-card').css('display', 'flex');		
+		$('.contacts-body-card').css('visibility', 'visible');		
 		
-		placeholder.textContent = cityObj[selected][0];
+		placeholder.textContent = cityObj[selected][0]; // заполнение карточки
 		city.textContent = cityObj[selected][0];
 		phone.textContent = cityObj[selected][1];
 		adress.textContent = cityObj[selected][2];
-
-		// адаптив 
-		// добавить телефон в ссылку 
+		button.href = 'tel:' + cityObj[selected][3];
 	});
 }
 
