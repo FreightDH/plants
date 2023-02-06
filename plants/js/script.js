@@ -22,7 +22,7 @@ function filter() {
 		document.getElementsByClassName('planting')
 	);
 	
-	$('.service-body-header-list__item').click(function (event) { 
+	$('.service-body-header-list__item').click(function (event) {  
 		let i = $(this).data('filter');
 		$(btnArr[i]).toggleClass('active');
 
@@ -39,7 +39,7 @@ function filter() {
 						$(cardsArr[2]).addClass('blur');
 					} 
 				} else {
-					$(cardsArr[0]).addClass('blur');
+					$(cardsArr[0]).removeClass('blur');
 				}
 				break;
 			}
@@ -77,10 +77,11 @@ function filter() {
 			}
 		}
 
-		let count = 0;
-		btnArr.forEach( (button) => $(button).hasClass('active') ? count++ : false);
-		if (count === btnArr.length) {
+		let countActive = 0, countUnactive = 0;
+		btnArr.forEach( (button) => $(button).hasClass('active') ? countActive++ : countUnactive++);
+		if (countActive === btnArr.length || countUnactive === btnArr.length) {
 			btnArr.forEach(button => $(button).removeClass('active'));
+			cardsArr.forEach(card => $(card).removeClass('blur'));
 		}
 	});
 }
@@ -138,8 +139,6 @@ function contacts() {
 			$('.contacts-body-card').removeClass('active');
 			$('.contacts__img').removeClass('active');
 			placeholder.textContent = 'City';
-		} else {
-			$('.contacts-body-card').addClass('active');
 		}
 	});
 
