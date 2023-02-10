@@ -691,11 +691,15 @@ body.lock {
 }
 .service-body-cards-item__img img {
   max-width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 20px 20px 0px 0px;
+  width: 330px;
+  height: 350px;
 }
 @media (max-width: 768px) {
   .service-body-cards-item__img img {
-    width: 279px;
-    height: 350px;
+    width: 280px;
   }
 }
 .service-body-cards-item__title {
@@ -851,7 +855,6 @@ body.lock {
 .prices-body-item-buttons {
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
   margin: 60px 0px 0px 0px;
   padding: 33px 40px;
@@ -1118,7 +1121,6 @@ body.lock {
   position: relative;
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
   cursor: pointer;
   background: #D6E7D2;
