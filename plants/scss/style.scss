@@ -408,10 +408,13 @@ body {
 	&__img {
 		img {
 			max-width: 100%;
+			object-fit: cover;
+			border-radius: 20px 20px 0px 0px;
+			width: 330px;
+			height: 350px;
 
 			@media (max-width: $md3) {
-				width: 279px;
-				height: 350px;
+				width: 280px;
 			}
 		}
 	}
