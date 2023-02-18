@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Momentum</title>
+</head>
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<div class="header-body">
+				<div class="header-body-player player">
+					<div class="player-controls">
+						<button class="player-controls__prev player-icon"></button>
+						<button class="player-controls__play player-icon"></button>
+						<button class="player-controls__next player-icon"></button>
+					 </div>
+					 <ul class="player-list"></ul>
+				</div>
+				<div class="header-body-weather weather">
+					<input type="text" class="weather__city" />
+					<i class="weather__icon owf owf-804"></i>
+					<div class="weather__error"></div>
+					<div class="weather-description">
+					  <span class="weather-description__temperature"></span>
+					  <span class="weather-description__description"></span>
+					</div>
+					<div class="weather__wind"></div>
+					<div class="weather__humidity"></div>
+				</div>
+			</div>
+		</header>
+		<main class="content">
+			<div class="content-body">
+				<div class="content-body-slider slider">
+					<div class="slider-icons">
+						<button class="slider-icons__prev slider-icon"></button>
+						<button class="slider-icons__next slider-icon"></button>
+					 </div>
+				</div>
+				<time class="content-body__time"></time>
+				<date class="content-body__date"></date>
+				<div class="content-body-greeting">
+					<span class="content-body-greeting__text"></span>
+					<input type="text" class="content-body-greeting__name" />
+				</div>
+			</div>
+		</main>
+		<footer class="footer">
+			<div class="footer-body">
+				<button class="footer-body__change"></button>
+				<div class="footer-body-quote">
+					<div class="footer-body-quote__text"></div>
+			  		<div class="footer-body-quote__anchor"></div>
+				</div>
+			</div>
+		</footer>
+	</div>	
+	<script src="js/script.js"></script>
+</body>
+</html>

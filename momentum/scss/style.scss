@@ -1,0 +1,206 @@
+//<МИКСИНЫ>
+@mixin anim($time, $delay) {-webkit-transition: all $time ease $delay;-moz-transition: all $time ease $delay;-ms-transition: all $time ease $delay;-o-transition: all $time ease $delay;transition: all $time ease $delay;}
+@mixin anim_cubic($time, $delay) {-webkit-transition: all $time cubic-bezier(0.68,-0.55,0.265,1.55) $delay;-moz-transition: all $time cubic-bezier(0.68,-0.55,0.265,1.55) $delay;-ms-transition: all $time cubic-bezier(0.68,-0.55,0.265,1.55) $delay;-o-transition: all $time cubic-bezier(0.68,-0.55,0.265,1.55) $delay;transition: all $time cubic-bezier(0.68,-0.55,0.265,1.55) $delay;}
+@mixin rotate($deg) {-webkit-transform: rotate($deg);-moz-transform: rotate($deg);-ms-transform: rotate($deg);-o-transform: rotate($deg);transform: rotate($deg);}
+@mixin scale($num) {-webkit-transform: scale($num);-moz-transform: scale($num);-ms-transform: scale($num);-o-transform: scale($num);transform: scale($num);}
+@mixin skew($num) {-webkit-transform: skewX($num); -moz-transform: skewX($num);-ms-transform: skewX($num);-o-transform: skewX($num);transform: skewX($num);}
+@mixin cnt($h) {display: flex;flex-direction: column;height: $h;text-align: center;align-items: stretch;justify-content: center;}
+@mixin tr($x, $y, $z) {transform: translate3d($x, $y, $z);}
+@mixin flexbox() {display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;font-size: 0px;}
+@mixin flexboxinline() {display: -webkit-inline-flex;display: -moz-inline-flex;display: -ms-inline-flex;display: -o-inline-flex;display: inline-flex;}
+@mixin flexorder($val) {-webkit-box-ordinal-group: $val;-moz-box-ordinal-group: $val;-ms-flex-order: $val;-webkit-order: $val;order: $val;}
+//</МИКСИНЫ>
+
+//<ШРИФТЫ>
+//<Подключаем шрифты>
+@import "_fonts";
+//</Подключаем шрифты>
+
+//<Шрифт по умолчанию>
+$fontFamily: "Arial";
+$fontSize: 16px;
+$mainColor: #fff;
+//</Шрифт по умолчанию>
+//</ШРИФТЫ>
+
+//<ПЕРЕМЕННЫЕ>
+$minWidth: 320px;
+$mw: 1170px;
+$md1: $mw + 12;
+$md2: 993px;
+$md3: 768px;
+$md4: 480px;
+//</ПЕРЕМЕННЫЕ>
+
+//<ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>
+@import "_null";
+
+html {
+	scroll-behavior: smooth;
+}
+body {
+	min-width: 480px;
+  	min-height: 100vh;
+	text-align: center;
+
+	background: url("../assets/img/bg.jpg") center/cover, rgba(0, 0, 0, 0.5);
+  	background-blend-mode: multiply;
+  	transition: background-image 1s ease-in-out;
+
+	&.lock {
+		overflow: hidden;
+
+		@media (max-width: $md3) {
+			width: 100%;
+			position: fixed;
+			overflow: hidden;
+		}
+	}
+}
+//</ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>
+
+//<ОБОЛОЧКА>
+.wrapper { 
+	width: 100%;
+	min-height: 100%;
+	overflow: hidden;
+	&.loaded {}
+}
+//</ОБОЛОЧКА>
+
+//<ОСНОВНАЯ СЕТКА>
+.container {
+	max-width: $mw;
+	width: 100%;
+	margin: 0px auto;
+	color: #000;
+	@media (max-width: $md1) {max-width: 970px;}
+	@media (max-width: $md2) {max-width: 750px;}
+	@media (max-width: $md3) {max-width: none; padding: 0;}
+}
+//</ОСНОВНАЯ СЕТКА>
+
+//<ПОДЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>
+@import "_header";
+@import "_footer";
+//</ПОДЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>
+
+//<ОСНОВНОЙ БЛОК>
+.content {
+	width: 100%;
+	height: 40vh;
+	min-height: 260px;  
+	padding: 20px;
+
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.content-body {
+
+	&__time {
+		min-height: 124px;
+		margin: 0px 0px 10px 0px;
+
+		font-family: 'Arial-MT';
+		font-size: 100px;
+		letter-spacing: -4px; 
+		
+		@media (max-width: $md3) {
+			min-height: 80px;
+	  		font-size: 72px;
+		}
+
+	}
+
+	&__date {
+		min-height: 28px;
+		margin: 0px 0px 20px 0px;
+		
+		font-size: 24px;
+	}
+}
+.content-body-slider {
+}
+.slider {
+}
+.slider-icons {
+
+	&__prev {
+		left: 20px;
+		background-image: url("../assets/svg/slider-prev.svg");
+	}
+
+	&__next {
+		right: 20px;
+		background-image: url("../assets/svg/slider-next.svg");
+	}
+}
+.slider-icon {
+	position: absolute;
+	top: 50%;
+	margin-top: -16px;
+	cursor: pointer;
+}
+.content-body-greeting {
+	width: 100vw;
+	min-height: 48px;
+
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: stretch;
+	align-items: center;
+
+	font-size: 40px;
+
+	@media (max-width: $md3) {
+		min-height: 40px;
+	  	font-size: 32px;
+	}
+
+	&__text {
+		flex: 1;  
+		padding: 10px;
+		text-align: right;
+
+		@media (max-width: $md3) {
+			padding: 5px;
+		}
+	}
+
+	&__name {
+		flex: 1;
+		max-width: 50%;
+		padding: 10px;
+
+		font-size: 40px;
+		text-align: left;
+		color: #fff;
+
+		background-color: transparent;
+
+		&::placeholder {
+			color: #fff;
+			opacity: .6;
+		}
+
+		@media (max-width: $md3) {
+			font-size: 32px;
+	 		padding: 5px;
+		}
+	}
+}
+//-------------------------------------------------------
+//-------------------------------------------------------
+//-------------------------------------------------------
+//-------------------------------------------------------
+//-------------------------------------------------------
+//-------------------------------------------------------
+//</ОСНОВНОЙ БЛОК>
+
+//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>
+@import "_forms";
+@import "_icons";
+//</ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>
