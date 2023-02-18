@@ -730,7 +730,6 @@ body.lock {
   body.lock {
     width: 100%;
     position: fixed;
-    overflow: hidden;
   }
 }
 
@@ -905,20 +904,22 @@ body.lock {
 .content-body__time {
   min-height: 124px;
   margin: 0px 0px 10px 0px;
+  display: block;
   font-family: "Arial-MT";
-  font-size: 100px;
-  letter-spacing: -4px;
+  font-size: 150px;
+  letter-spacing: -10px;
 }
 @media (max-width: 768px) {
   .content-body__time {
     min-height: 80px;
-    font-size: 72px;
+    font-size: 80px;
+    letter-spacing: -5px;
   }
 }
 .content-body__date {
   min-height: 28px;
   margin: 0px 0px 20px 0px;
-  font-size: 24px;
+  font-size: 35px;
 }
 
 .slider-icons__prev {

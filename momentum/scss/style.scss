@@ -46,6 +46,7 @@ body {
 	background: url("../assets/img/bg.jpg") center/cover, rgba(0, 0, 0, 0.5);
   	background-blend-mode: multiply;
   	transition: background-image 1s ease-in-out;
+	
 
 	&.lock {
 		overflow: hidden;
@@ -53,7 +54,6 @@ body {
 		@media (max-width: $md3) {
 			width: 100%;
 			position: fixed;
-			overflow: hidden;
 		}
 	}
 }
@@ -103,23 +103,24 @@ body {
 	&__time {
 		min-height: 124px;
 		margin: 0px 0px 10px 0px;
+		display: block;
 
 		font-family: 'Arial-MT';
-		font-size: 100px;
-		letter-spacing: -4px; 
+		font-size: 150px;
+		letter-spacing: -10px; 
 		
 		@media (max-width: $md3) {
 			min-height: 80px;
-	  		font-size: 72px;
+	  		font-size: 80px;
+			letter-spacing: -5px; 
 		}
-
 	}
 
 	&__date {
 		min-height: 28px;
 		margin: 0px 0px 20px 0px;
 		
-		font-size: 24px;
+		font-size: 35px;
 	}
 }
 .content-body-slider {
