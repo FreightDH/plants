@@ -1,9 +1,9 @@
 function showTime() {
-	const timeElement = document.querySelector('.content-body__time');
 	const date = new Date();
+	const timeElement = document.querySelector('.content-body__time');
+
 	timeElement.textContent = date.toLocaleTimeString();
 	setTimeout(showTime, 1000);
-
 }
 
 function showDate() {
@@ -16,13 +16,43 @@ function showDate() {
 		'Friday',
 		'Saturday'
 	];
-	const dateElement = document.querySelector('.content-body__date');
 	const date = new Date();
-	const options = { day: 'string', month: 'long', day: 'numeric', timeZone: 'UTC' };
+	const options = { month: 'long', day: 'numeric'};
+	const dateElement = document.querySelector('.content-body__date');
 
-	dateElement.textContent = days[date.getDay()] + ', ' + date.toLocaleDateString('en-En', options);
+	dateElement.textContent = days[date.getDay()] + ', ' + date.toLocaleDateString('en-US', options);
 	setTimeout(showDate, 1000);
 }
 
+function showGreeting() {
+	const greetings = ['night', 'morning', 'afternoon', 'evening'];
+	const date = new Date();
+	const hours = date.getHours();
+	const greeting = document.querySelector('.content-body-greeting__text');
+	const nameWrapper = document.querySelector('.content-body-greeting__name');
+
+	greeting.textContent = `Good ${greetings[Math.floor(hours / 6)]}, `
+
+	nameWrapper.addEventListener('click', () => {
+		const name = prompt('Enter your name.');
+		
+		nameWrapper.textContent = `${name.slice(0, 10)}.`;
+		nameWrapper.classList.add('entered');
+		
+		localStorage.setItem('name', nameWrapper.textContent);
+	});
+}
+
+function getLocalStorage() {
+	const name = document.querySelector('.content-body-greeting__name');
+
+	if (localStorage.getItem('name')) {
+		name.textContent = localStorage.getItem('name');
+	  	name.classList.add('entered');
+	}
+}
+window.addEventListener('load', getLocalStorage)
+
 showTime();
 showDate();
+showGreeting();

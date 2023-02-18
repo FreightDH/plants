@@ -93,20 +93,19 @@ body {
 	padding: 20px;
 
 	position: relative;
+}
+.content-body {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-}
-.content-body {
 
 	&__time {
 		min-height: 124px;
-		margin: 0px 0px 10px 0px;
 		display: block;
 
 		font-family: 'Arial-MT';
-		font-size: 150px;
+		font-size: 145px;
 		letter-spacing: -10px; 
 		
 		@media (max-width: $md3) {
@@ -118,9 +117,13 @@ body {
 
 	&__date {
 		min-height: 28px;
-		margin: 0px 0px 20px 0px;
+		padding: 20px 0;
 		
-		font-size: 35px;
+		font-size: 30px;
+
+		@media (max-width: $md3) {
+			font-size: 20px;
+		}
 	}
 }
 .content-body-slider {
@@ -149,12 +152,7 @@ body {
 	width: 100vw;
 	min-height: 48px;
 
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: stretch;
-	align-items: center;
-
-	font-size: 40px;
+	font-size: 45px;
 
 	@media (max-width: $md3) {
 		min-height: 40px;
@@ -162,34 +160,32 @@ body {
 	}
 
 	&__text {
-		flex: 1;  
-		padding: 10px;
-		text-align: right;
+		// flex: 0 0 50%; 
+		// flex: 1 1 auto;
+		// text-align: right;
+		// padding: 10px;
+		// text-align: center;
 
 		@media (max-width: $md3) {
-			padding: 5px;
+			// padding: 5px;
 		}
 	}
 
 	&__name {
-		flex: 1;
-		max-width: 50%;
-		padding: 10px;
-
 		font-size: 40px;
-		text-align: left;
 		color: #fff;
+		text-align: center;
 
 		background-color: transparent;
+		opacity: .6;
+		cursor: pointer;
 
-		&::placeholder {
-			color: #fff;
-			opacity: .6;
+		&.entered {
+			opacity: 1;
 		}
 
 		@media (max-width: $md3) {
 			font-size: 32px;
-	 		padding: 5px;
 		}
 	}
 }

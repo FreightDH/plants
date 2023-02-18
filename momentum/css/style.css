@@ -895,18 +895,19 @@ body.lock {
   min-height: 260px;
   padding: 20px;
   position: relative;
+}
+
+.content-body {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-
 .content-body__time {
   min-height: 124px;
-  margin: 0px 0px 10px 0px;
   display: block;
   font-family: "Arial-MT";
-  font-size: 150px;
+  font-size: 145px;
   letter-spacing: -10px;
 }
 @media (max-width: 768px) {
@@ -918,8 +919,13 @@ body.lock {
 }
 .content-body__date {
   min-height: 28px;
-  margin: 0px 0px 20px 0px;
-  font-size: 35px;
+  padding: 20px 0;
+  font-size: 30px;
+}
+@media (max-width: 768px) {
+  .content-body__date {
+    font-size: 20px;
+  }
 }
 
 .slider-icons__prev {
@@ -941,11 +947,7 @@ body.lock {
 .content-body-greeting {
   width: 100vw;
   min-height: 48px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: stretch;
-  align-items: center;
-  font-size: 40px;
+  font-size: 45px;
 }
 @media (max-width: 768px) {
   .content-body-greeting {
@@ -953,37 +955,20 @@ body.lock {
     font-size: 32px;
   }
 }
-.content-body-greeting__text {
-  flex: 1;
-  padding: 10px;
-  text-align: right;
-}
-@media (max-width: 768px) {
-  .content-body-greeting__text {
-    padding: 5px;
-  }
-}
 .content-body-greeting__name {
-  flex: 1;
-  max-width: 50%;
-  padding: 10px;
   font-size: 40px;
-  text-align: left;
   color: #fff;
+  text-align: center;
   background-color: transparent;
-}
-.content-body-greeting__name::-moz-placeholder {
-  color: #fff;
   opacity: 0.6;
+  cursor: pointer;
 }
-.content-body-greeting__name::placeholder {
-  color: #fff;
-  opacity: 0.6;
+.content-body-greeting__name.entered {
+  opacity: 1;
 }
 @media (max-width: 768px) {
   .content-body-greeting__name {
     font-size: 32px;
-    padding: 5px;
   }
 }
 
