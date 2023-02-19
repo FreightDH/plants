@@ -8,7 +8,7 @@ export function setBackground() {
 	
 	let bgNum = randomInt < 10 ? randomInt.toString().padStart(2, '0') : randomInt;
 	
-	img.src = `https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/assets/images/${timeOfDay[Math.floor(hours / 6)]}/${bgNum}.jpg`;
+	img.src = `https://raw.githubusercontent.com/FreightDH/momentum-images/main/images/${timeOfDay[Math.floor(hours / 6)]}/${bgNum}.webp`;
 	img.onload = () => {      
 	  document.body.style.backgroundImage = `url('${img.src}')`;
 	}; 
