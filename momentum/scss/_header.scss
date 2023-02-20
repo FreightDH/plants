@@ -72,17 +72,18 @@ header {}
 }
 .header-body-weather {
 	width: 180px;
-	min-height: 180px;
+	max-height: 180px;
 	
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: flex-start;
-
-	row-gap: 5px; 
+ 
 	text-align: left;
 }
 .weather {
+	font-size: 18px;
+	line-height: 23px;
 
 	&__city {
 		width: 170px;
@@ -105,10 +106,11 @@ header {}
 
 	&__icon {
 		font-size: 44px;
+		padding: 15px 0;
 	}
 
 	&__error {
-		margin: -10px 0px 0px 0px;
+		margin: 10px 0px 0px 0px;
 	}
 
 	&__wind {
@@ -123,7 +125,7 @@ header {}
 	justify-content: flex-start;
 	align-items: center;
 
-	column-gap: 12px;
+	column-gap: 14px;
 
 	&__temperature {
 	}

@@ -41,14 +41,6 @@ export function showGreeting() {
 		
 		localStorage.setItem('name', nameWrapper.textContent);
 	});
-}
 
-function getLocalStorage() {
-	const name = document.querySelector('.content-body-greeting__name');
-
-	if (localStorage.getItem('name')) {
-		name.textContent = localStorage.getItem('name');
-	  	name.classList.add('entered');
-	}
+	setTimeout(showGreeting, 3600000);
 }
-window.addEventListener('load', getLocalStorage);

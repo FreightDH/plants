@@ -823,15 +823,18 @@ body.lock {
 
 .header-body-weather {
   width: 180px;
-  min-height: 180px;
+  max-height: 180px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  row-gap: 5px;
   text-align: left;
 }
 
+.weather {
+  font-size: 18px;
+  line-height: 23px;
+}
 .weather__city {
   width: 170px;
   height: 34px;
@@ -854,17 +857,18 @@ body.lock {
 }
 .weather__icon {
   font-size: 44px;
+  padding: 15px 0;
 }
 .weather__error {
-  margin: -10px 0px 0px 0px;
+  margin: 10px 0px 0px 0px;
 }
 .weather-description {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: center;
-  -moz-column-gap: 12px;
-       column-gap: 12px;
+  -moz-column-gap: 14px;
+       column-gap: 14px;
 }
 .footer {
   width: 100%;
