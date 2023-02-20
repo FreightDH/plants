@@ -78,7 +78,8 @@ header {}
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: flex-start;
- 
+
+	row-gap: 5px; 
 	text-align: left;
 }
 .weather {
