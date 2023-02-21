@@ -31,10 +31,10 @@ header {}
 		height: 40px;
 		background-size: 40px 40px;
 		background-image: url("../assets/svg/play.svg");
-	}
 
-	&__pause {
-		background-image: url("../assets/svg/pause.svg");
+		&.play {
+			background-image: url("../assets/svg/pause.svg");
+		}
 	}
 
 	&__next {

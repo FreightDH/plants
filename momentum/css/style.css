@@ -719,7 +719,8 @@ body {
   min-width: 480px;
   min-height: 100vh;
   text-align: center;
-  background: url("../assets/img/bg.jpg") center/cover, rgba(0, 0, 0, 0.5);
+  background-position: center/cover;
+  background-color: rgba(0, 0, 0, 0.5);
   background-blend-mode: multiply;
   transition: background-image 1s ease-in-out;
 }
@@ -790,7 +791,7 @@ body.lock {
   background-size: 40px 40px;
   background-image: url("../assets/svg/play.svg");
 }
-.player-controls__pause {
+.player-controls__play.play {
   background-image: url("../assets/svg/pause.svg");
 }
 .player-controls__next {
