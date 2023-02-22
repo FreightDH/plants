@@ -780,6 +780,10 @@ body.lock {
   align-items: flex-start;
 }
 
+.header-body-player {
+  transition: all 0.3s ease 0s;
+}
+
 .player-controls {
   width: 120px;
   margin-bottom: 28px;
@@ -841,6 +845,7 @@ body.lock {
 .weather {
   font-size: 18px;
   line-height: 23px;
+  transition: all 0.3s ease 0s;
 }
 .weather__city {
   width: 170px;
@@ -944,6 +949,9 @@ body.lock {
   opacity: 1;
 }
 
+.footer-body-quote {
+  transition: all 0.3s ease 0s;
+}
 .footer-body-quote__text {
   padding: 20px 0;
 }
@@ -967,6 +975,10 @@ body.lock {
   font-family: "Arial-MT";
   font-size: 145px;
   letter-spacing: -10px;
+  transition: all 0.3s ease 0s;
+}
+.content-body__time.disabled {
+  height: 0;
 }
 @media (max-width: 768px) {
   .content-body__time {
@@ -978,7 +990,11 @@ body.lock {
 .content-body__date {
   min-height: 28px;
   padding: 20px 0;
+  transition: all 0.3s ease 0s;
   font-size: 30px;
+}
+.content-body__date.disabled {
+  height: 0;
 }
 @media (max-width: 768px) {
   .content-body__date {
@@ -1006,6 +1022,10 @@ body.lock {
   width: 100vw;
   min-height: 48px;
   font-size: 45px;
+  transition: all 0.3s ease 0s;
+}
+.content-body-greeting.disabled {
+  height: 0;
 }
 @media (max-width: 768px) {
   .content-body-greeting {
@@ -1028,6 +1048,10 @@ body.lock {
   .content-body-greeting__name {
     font-size: 32px;
   }
+}
+
+.disabled {
+  opacity: 0;
 }
 
 .switch {

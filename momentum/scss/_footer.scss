@@ -80,7 +80,7 @@ footer {}
 }
 
 .footer-body-quote {
-
+	@include anim(0.3s, 0s);
 	&__text {
 		padding: 20px 0;
 	}

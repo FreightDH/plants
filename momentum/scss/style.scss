@@ -112,6 +112,12 @@ body {
 		font-family: 'Arial-MT';
 		font-size: 145px;
 		letter-spacing: -10px; 
+
+		@include anim(0.3s, 0s);
+
+		&.disabled {
+			height: 0;
+		}
 		
 		@media (max-width: $md3) {
 			min-height: 80px;
@@ -123,8 +129,14 @@ body {
 	&__date {
 		min-height: 28px;
 		padding: 20px 0;
+
+		@include anim(0.3s, 0s);
 		
 		font-size: 30px;
+
+		&.disabled {
+			height: 0;
+		}
 
 		@media (max-width: $md3) {
 			font-size: 20px;
@@ -158,6 +170,12 @@ body {
 	min-height: 48px;
 
 	font-size: 45px;
+
+	@include anim(0.3s, 0s);
+
+	&.disabled {
+		height: 0;
+	}
 
 	@media (max-width: $md3) {
 		min-height: 40px;
@@ -193,6 +211,9 @@ body {
 			font-size: 32px;
 		}
 	}
+}
+.disabled {
+	opacity: 0;		
 }
 //-------------------------------------------------------
 //-------------------------------------------------------
