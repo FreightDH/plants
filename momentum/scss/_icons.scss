@@ -1,6 +1,7 @@
 .player-icon,
 .slider-icon,
-.change-quote {
+.change-quote,
+.settings-icon {
 	width: 32px;
 	height: 32px;
 	
@@ -18,13 +19,15 @@
  
 .player-icon:hover,
 .slider-icon:hover,
-.change-quote:hover {
+.change-quote:hover,
+.settings-icon:hover {
 	opacity: 1;
 }
  
 .player-icon:active,
 .slider-icon:active,
-.change-quote:active {
+.change-quote:active,
+.settings-icon:active {
 	border: 0;
 	outline: 0;  
 	transform: scale(1.1);
