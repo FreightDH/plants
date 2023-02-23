@@ -15,6 +15,7 @@ const ru = document.querySelector('.ru');
 const state = {
 	blocks: [time, date, greeting, quote, weather, audio],
 	language: [en, ru],
+	activeLanguage: 'EN',
 	photoSource: 'github',
 }
 
@@ -40,7 +41,7 @@ toggleButton.forEach(element => {
 		const value = event.target.dataset.value;
 		state.blocks[value].classList.toggle('disabled');
 	})
-})
+});
 
 language.addEventListener('click', function (event) {
 	const value = event.target.dataset.value;
@@ -48,7 +49,11 @@ language.addEventListener('click', function (event) {
 	if (state.language.at(value - 1).classList.contains('active')) {
 		state.language.at(value - 1).classList.remove('active')
 		state.language[value].classList.add('active');
+		state.activeLanguage = event.target.textContent;
+	} else {
+		state.language[value].classList.add('active');
+		state.activeLanguage = event.target.textContent;
 	}
+});
 
-	state.language[value].classList.add('active');
-})
+export default state;

@@ -1,13 +1,12 @@
-export function showTime() {
-	const date = new Date();
-	const timeElement = document.querySelector('.content-body__time');
+import state from "./settings.js";
 
-	timeElement.textContent = date.toLocaleTimeString();
-	setTimeout(showTime, 1000);
-}
-
-export function showDate() {
-	const days = [
+const timeElement = document.querySelector('.content-body__time');
+const dateElement = document.querySelector('.content-body__date');
+const greeting = document.querySelector('.content-body-greeting__text');
+const nameWrapper = document.querySelector('.content-body-greeting__name');
+const options = { month: 'long', day: 'numeric'};
+const days = {
+	'EN': [
 		'Sunday',
 		'Monday',
 		'Tuesday',
@@ -15,23 +14,54 @@ export function showDate() {
 		'Thursday',
 		'Friday',
 		'Saturday'
-	];
-	const date = new Date();
-	const options = { month: 'long', day: 'numeric'};
-	const dateElement = document.querySelector('.content-body__date');
+	], 
+	'RU': [
+		'Воскресенье',
+		'Понедельник',
+		'Вторник',
+		'Среда',
+		'Четверг',
+		'Пятница',
+		'Суббота'
+	]
+};
+const timeOfDay = {
+	'EN': ['night', 'morning', 'afternoon', 'evening'],
+	'RU': ['ночи', 'утро', 'день', 'вечер'],
+};
 
-	dateElement.textContent = days[date.getDay()] + ', ' + date.toLocaleDateString('en-US', options);
+export function showTime() {
+	const date = new Date();
+	timeElement.textContent = date.toLocaleTimeString();
+	setTimeout(showTime, 1000);
+}
+
+export function showDate() {
+	const date = new Date();
+	const language = state.activeLanguage;
+
+	if (language === 'EN')
+		dateElement.textContent = days[language][date.getDay()] + ', ' + date.toLocaleDateString('en-US', options);
+	else 
+		dateElement.textContent = days[language][date.getDay()] + ', ' + date.toLocaleDateString('ru-RU', options);
 	setTimeout(showDate, 1000);
 }
 
 export function showGreeting() {
-	const timeOfDay = ['night', 'morning', 'afternoon', 'evening'];
 	const date = new Date();
 	const hours = date.getHours();
-	const greeting = document.querySelector('.content-body-greeting__text');
-	const nameWrapper = document.querySelector('.content-body-greeting__name');
+	const language = state.activeLanguage;
+	const index = Math.floor(hours / 6);
 
-	greeting.textContent = `Good ${timeOfDay[Math.floor(hours / 6)]}, `
+	if (language === 'EN') {
+		greeting.textContent = `Good ${timeOfDay[language][index]},`;
+	} else {
+		switch (index) {
+			case 0: greeting.textContent = `Доброй ${timeOfDay[language][index]},`;
+			case 1: greeting.textContent = `Доброе ${timeOfDay[language][index]},`;
+			default: greeting.textContent = `Добрый ${timeOfDay[language][index]},`;
+		}
+	}
 
 	nameWrapper.addEventListener('click', () => {
 		const name = prompt('Enter your name.');
@@ -42,5 +72,5 @@ export function showGreeting() {
 		localStorage.setItem('name', nameWrapper.textContent);
 	});
 
-	setTimeout(showGreeting, 3600000);
+	setTimeout(showGreeting, 1000);
 }

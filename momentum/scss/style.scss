@@ -43,7 +43,8 @@ body {
   	min-height: 100vh;
 	text-align: center;
 
-	background-position: center/cover;
+	background-position: center;
+	background-size: cover;
 	background-color: rgba(0, 0, 0, 0.5);
   	background-blend-mode: multiply;
   	transition: background-image 1s ease-in-out;
