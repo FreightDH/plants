@@ -833,7 +833,7 @@ body.lock {
 }
 
 .header-body-weather {
-  width: 180px;
+  min-width: 200px;
   max-height: 180px;
   display: flex;
   flex-direction: column;
@@ -849,7 +849,7 @@ body.lock {
   transition: all 0.3s ease 0s;
 }
 .weather__city {
-  width: 170px;
+  width: 100%;
   height: 34px;
   padding: 5px;
   border-bottom: 1px solid #fff;
@@ -1014,8 +1014,7 @@ body.lock {
 
 .slider-icon {
   position: absolute;
-  top: 50%;
-  margin-top: -16px;
+  top: 30%;
   cursor: pointer;
 }
 

@@ -1,9 +1,16 @@
 import state from "./settings.js";
 
+// TIME
 const timeElement = document.querySelector('.content-body__time');
+
+export function showTime() {
+	const date = new Date();
+	timeElement.textContent = date.toLocaleTimeString();
+	setTimeout(showTime, 1000);
+}
+// --------------------------------------------------------------------
+// DATE
 const dateElement = document.querySelector('.content-body__date');
-const greeting = document.querySelector('.content-body-greeting__text');
-const nameWrapper = document.querySelector('.content-body-greeting__name');
 const options = { month: 'long', day: 'numeric'};
 const days = {
 	'EN': [
@@ -30,12 +37,6 @@ const timeOfDay = {
 	'RU': ['ночи', 'утро', 'день', 'вечер'],
 };
 
-export function showTime() {
-	const date = new Date();
-	timeElement.textContent = date.toLocaleTimeString();
-	setTimeout(showTime, 1000);
-}
-
 export function showDate() {
 	const date = new Date();
 	const language = state.activeLanguage;
@@ -46,6 +47,10 @@ export function showDate() {
 		dateElement.textContent = days[language][date.getDay()] + ', ' + date.toLocaleDateString('ru-RU', options);
 	setTimeout(showDate, 1000);
 }
+// --------------------------------------------------------------------
+// GREETING
+const greeting = document.querySelector('.content-body-greeting__text');
+const nameWrapper = document.querySelector('.content-body-greeting__name');
 
 export function showGreeting() {
 	const date = new Date();
@@ -62,15 +67,17 @@ export function showGreeting() {
 			default: greeting.textContent = `Добрый ${timeOfDay[language][index]},`;
 		}
 	}
-
-	nameWrapper.addEventListener('click', () => {
-		const name = prompt('Enter your name.');
-		
-		nameWrapper.textContent = `${name.slice(0, 10)}.`;
-		nameWrapper.classList.add('entered');
-		
-		localStorage.setItem('name', nameWrapper.textContent);
-	});
-
+	
 	setTimeout(showGreeting, 1000);
 }
+
+nameWrapper.addEventListener('click', () => {
+	const language = state.activeLanguage;
+	const name = language === 'EN' ? prompt('Enter your name.') : prompt('Введите ваше имя.');
+	
+	nameWrapper.textContent = `${name.slice(0, 10)}.`;
+	nameWrapper.classList.add('entered');
+	
+	localStorage.setItem('name', nameWrapper.textContent);
+});
+// --------------------------------------------------------------------

@@ -1,14 +1,7 @@
+// CREATE PLAYLIST
 import playList from "./playList.js";
 
-const playPause = document.querySelector('.player-controls__play');
-const playNextButton = document.querySelector('.player-controls__next');
-const playPrevButton = document.querySelector('.player-controls__prev');
-const playListContainer = document.querySelector('.player-list');
 const songs = [];
-let isPlay = false;
-let playNum = 0;
-
-const audio = new Audio();
 
 export function createPlaylist() {
 	playList.forEach(track => {
@@ -19,6 +12,17 @@ export function createPlaylist() {
 		songs.push(li); 
 	});	
 }
+// --------------------------------------------------------------------
+// PLAYER FUNCTIONS
+const playPause = document.querySelector('.player-controls__play');
+const playNextButton = document.querySelector('.player-controls__next');
+const playPrevButton = document.querySelector('.player-controls__prev');
+const playListContainer = document.querySelector('.player-list');
+
+let isPlay = false;
+let playNum = 0;
+
+const audio = new Audio();
 
 function playAudio() {
   	audio.src = playList[playNum].src;
@@ -54,3 +58,4 @@ function playPrev() {
 playPause.addEventListener('click', playAudio);
 playNextButton.addEventListener('click', playNext);
 playPrevButton.addEventListener('click', playPrev);
+// --------------------------------------------------------------------

@@ -1,5 +1,11 @@
+// GET RANDOM NUMBER
 let randomInt = getRandomNum(1, 20);
 
+function getRandomNum(min, max) {
+	return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+// --------------------------------------------------------------------
+// SET BACKGROUND
 export function setBackground() {  
 	const img = new Image();
 	const timeOfDay = ['night', 'morning', 'afternoon', 'evening'];
@@ -13,6 +19,10 @@ export function setBackground() {
 	  document.body.style.backgroundImage = `url('${img.src}')`;
 	}; 
 }
+// --------------------------------------------------------------------
+// SLIDER FUNCTIONS
+const slideNext = document.querySelector('.slider-icons__next');
+const slidePrev = document.querySelector('.slider-icons__prev');
 
 function getSlideNext() {
 	randomInt = randomInt < 20 ? randomInt += 1 : 1;
@@ -24,11 +34,6 @@ function getSlidePrev() {
 	setBackground();
 }
 
-function getRandomNum(min, max) {
-	return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-const slideNext = document.querySelector('.slider-icons__next');
-const slidePrev = document.querySelector('.slider-icons__prev');
 slideNext.addEventListener('click', getSlideNext);
 slidePrev.addEventListener('click', getSlidePrev);
+// --------------------------------------------------------------------

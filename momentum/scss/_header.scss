@@ -72,7 +72,7 @@ header {}
 	}
 }
 .header-body-weather {
-	width: 180px;
+	min-width: 200px;
 	max-height: 180px;
 	
 	display: flex;
@@ -89,7 +89,7 @@ header {}
 	@include anim(0.3s, 0s);
 
 	&__city {
-		width: 170px;
+		width: 100%;
 		height: 34px;
 		padding: 5px;
 

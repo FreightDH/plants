@@ -1,10 +1,14 @@
+import state from "./settings.js";
+
 const quote = document.querySelector('.footer-body-quote__text');
 const author = document.querySelector('.footer-body-quote__author');
-const reload = document.querySelector('.footer-body__change');
+const changeQuote = document.querySelector('.footer-body__change');
+
 let flag = false;
 let randomNum;
 
 export async function getQuotes() {  
+	const language = state.activeLanguage;
 	const quotes = 'data.json';
 	const res = await fetch(quotes);
 	const data = await res.json(); 
@@ -16,11 +20,16 @@ export async function getQuotes() {
 	}
 	randomNum = getRandomNum(min, max, randomNum);
 
-	quote.textContent = data[randomNum].text;
-	author.textContent = data[randomNum].author;
+	if (language === 'EN') {
+		quote.textContent = data[randomNum].text[0];
+		author.textContent = data[randomNum].author[0];
+	} else {
+		quote.textContent = data[randomNum].text[1];
+		author.textContent = data[randomNum].author[1];
+	}
 }
 
-reload.addEventListener('click', getQuotes);
+changeQuote.addEventListener('click', getQuotes);
 
 function getRandomNum(min, max, prevNum) {
 	let result;
