@@ -149,7 +149,6 @@ body {
 .slider {
 }
 .slider-icons {
-
 	&__prev {
 		left: 20px;
 		background-image: url("../assets/svg/slider-prev.svg");
@@ -163,7 +162,8 @@ body {
 .slider-icon {
 	position: absolute;
 	top: 30%;
-
+	z-index: 5;
+	
 	cursor: pointer;
 }
 .content-body-greeting {

@@ -15,7 +15,7 @@ export async function getWeather() {
   	
 	if (!res.ok) {
 		error.removeAttribute('hidden');
-		error.textContent = `Error! '${city.value}' is not found!`;
+		error.textContent = language === 'EN' ? `Error! '${city.value}' is not found!` : `Ошибка! '${city.value}' не найден!`;
 		weatherIcon.className = '';
 		temperature.textContent = '';
 		weatherDescription.textContent = '';
@@ -31,12 +31,13 @@ export async function getWeather() {
 	weatherIcon.classList.add(`owf-${data.weather[0].id}`);
 	temperature.textContent = `${data.main.temp.toFixed(0)}°C`;
 	weatherDescription.textContent = data.weather[0].description;
+	city.value = data.name;
 	
 	if (language === 'EN') {
 		windSpeed.textContent = `Wind speed: ${data.wind.speed.toFixed(0)} m/s`;
 		humidity.textContent = `Humidity: ${data.main.humidity}%`;
 	} else {
-		windSpeed.textContent = `Скорость ветра: ${data.wind.speed.toFixed(0)} m/s`;
+		windSpeed.textContent = `Скорость ветра: ${data.wind.speed.toFixed(0)} м/с`;
 		humidity.textContent = `Влажность: ${data.main.humidity}%`;
 	}
 

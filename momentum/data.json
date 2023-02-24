@@ -1,14 +1,14 @@
 [
 	{
-	  "text": ["Write the code as if it will be accompanied by a violent psychopath who knows where you live.", "Пишите код так, как будто сопровождать его будет склонный к насилию психопат, который знает, где вы живете."],
+	  "text": ["\"Write the code as if it will be accompanied by a violent psychopath who knows where you live.\"", "\"Пишите код так, как будто сопровождать его будет склонный к насилию психопат, который знает, где вы живете.\""],
 	  "author": ["Martin Golding", "Мартин Голдинг"]
 	},
 	{
-	  "text": ["The complexity of the program grows until it exceeds the abilities of the programmer.", "Сложность программы растет до тех пор, пока не превысит способности программиста."],
+	  "text": ["\"The complexity of the program grows until it exceeds the abilities of the programmer.\"", "\"Сложность программы растет до тех пор, пока не превысит способности программиста.\""],
 	  "author": ["Arthur Bloch. Murphy's Law", "Артур Блох. Законы Мерфи"]
 	},
 	{
-	  "text": ["Walking on water and developing programs following the TS is very easy... if they are frozen.", "Ходить по воде и разрабатывать программы, следуя ТЗ, очень просто… если они заморожены"],
+	  "text": ["\"Walking on water and developing programs following the TS is very easy... if they are frozen.\"", "\"Ходить по воде и разрабатывать программы, следуя ТЗ, очень просто… если они заморожены\""],
 	  "author": ["E. Berard", "Э. Берард"]
 	}
 ] 

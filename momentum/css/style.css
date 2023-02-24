@@ -943,6 +943,26 @@ body.lock {
   margin: 0px 10px 0px 0px;
 }
 
+.footer-body-settings-window-images__option {
+  opacity: 0.6;
+}
+.footer-body-settings-window-images__option.active {
+  opacity: 1;
+}
+.footer-body-settings-window-images__input {
+  width: 100%;
+  height: 0px;
+  background-color: transparent;
+  text-align: center;
+  font-size: 16px;
+  color: #000;
+  transition: all 0.4s ease 0s;
+}
+.footer-body-settings-window-images__input.api {
+  height: 34px;
+  border-bottom: 1px solid #000;
+}
+
 .footer-body-settings-window-language__option {
   opacity: 0.6;
 }
@@ -1015,6 +1035,7 @@ body.lock {
 .slider-icon {
   position: absolute;
   top: 30%;
+  z-index: 5;
   cursor: pointer;
 }
 

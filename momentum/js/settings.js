@@ -1,4 +1,5 @@
 import { getQuotes } from "./quote.js";
+import { setBackground, setBackgroundAPI } from "./slider.js";
 // SETTINGS OBJECT
 const time = document.querySelector('.content-body__time');
 const date = document.querySelector('.content-body__date');
@@ -8,11 +9,14 @@ const weather = document.querySelector('.header-body-weather');
 const audio = document.querySelector('.header-body-player');
 const en = document.querySelector('.en');
 const ru = document.querySelector('.ru');
+const git = document.querySelector('.git');
+const api = document.querySelector('.api');
 const state = {
 	blocks: [time, date, greeting, quote, weather, audio],
 	language: [en, ru],
+	photoSource: [git, api],
 	activeLanguage: 'EN',
-	photoSource: 'github',
+	activePhotoSource: 'GIT',
 };
 export default state;
 // --------------------------------------------------------------------
@@ -24,8 +28,8 @@ const settingsOptionsObject = {
 	'RU': ['Время', 'Дата', 'Приветствие', 'Цитата', 'Погода', 'Плеер'],
 };
 const titlesObject = {
-	'EN': ['Show', 'Language'],
-	'RU': ['Отображение', 'Язык'],
+	'EN': ['Show', 'Image source', 'Language'],
+	'RU': ['Отображение', 'Источник изображений', 'Язык'],
 };
 
 export function settingsOptions() {
@@ -39,7 +43,6 @@ export function settingsOptions() {
 		title.textContent = titlesObject[language][index];
 	});
 
-	
 	setTimeout(settingsOptions, 1000);
 }
 // --------------------------------------------------------------------
@@ -68,6 +71,12 @@ toggleButton.forEach(element => {
 	element.addEventListener('click', function (event) {
 		const value = event.target.dataset.value;
 		state.blocks[value].classList.toggle('disabled');
+
+		if (state.blocks[value].classList.contains('disabled')) {
+			localStorage.setItem(`${value}`, 'disabled');
+		} else {
+			localStorage.removeItem(`${value}`);
+		}
 	});
 });
 // --------------------------------------------------------------------
@@ -77,16 +86,47 @@ const language = document.querySelector('.footer-body-settings-window-language')
 language.addEventListener('click', function (event) {
 	const value = event.target.dataset.value;
 	
-	if (state.language.at(value - 1).classList.contains('active')) {
-		state.language.at(value - 1).classList.remove('active');
-		state.language[value].classList.add('active');
-		state.activeLanguage = event.target.textContent;
-	} else {
-		state.language[value].classList.add('active');
-		state.activeLanguage = event.target.textContent;
+	if (event.target.closest('.en') || event.target.closest('.ru')) {
+		if (state.language.at(value - 1).classList.contains('active')) {
+			state.language.at(value - 1).classList.remove('active');
+			state.language[value].classList.add('active');
+			state.activeLanguage = event.target.textContent;
+		} else {
+			state.language[value].classList.add('active');
+			state.activeLanguage = event.target.textContent;
+		}
+
+		getQuotes(); // quote in the selected language
+		localStorage.setItem('language', state.activeLanguage);
 	}
+});
+// --------------------------------------------------------------------
+// SETTINGS IMAGES SWITCH
+const images = document.querySelector('.footer-body-settings-window-images');
+const input = document.querySelector('.footer-body-settings-window-images__input');
+
+images.addEventListener('click', function (event) {
+	const value = event.target.dataset.value;
 	
-	getQuotes(); // quote in the selected language
-	localStorage.setItem('language', state.activeLanguage);
+	if ((event.target.closest('.git') || event.target.closest('.api')) && !event.target.closest('.footer-body-settings-window-images__input')) {
+		if (state.photoSource.at(value - 1).classList.contains('active')) {
+			state.photoSource.at(value - 1).classList.remove('active');
+			state.photoSource[value].classList.add('active');
+			state.activePhotoSource = event.target.textContent;
+		} else {
+			state.photoSource[value].classList.add('active');
+			state.activePhotoSource = event.target.textContent;
+		}
+		
+		if (state.activePhotoSource === 'GIT') {
+			input.classList.remove('api');
+			setBackground();
+		} else {
+			input.classList.add('api');
+			setBackgroundAPI();
+		}
+
+		localStorage.setItem('photoSource', state.activePhotoSource);
+	}
 });
 // --------------------------------------------------------------------

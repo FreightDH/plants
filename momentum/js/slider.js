@@ -1,3 +1,4 @@
+import state from "./settings.js";
 // GET RANDOM NUMBER
 let randomInt = getRandomNum(1, 20);
 
@@ -19,6 +20,30 @@ export function setBackground() {
 	  document.body.style.backgroundImage = `url('${img.src}')`;
 	}; 
 }
+
+const input = document.querySelector('.footer-body-settings-window-images__input');
+export async function setBackgroundAPI() {
+	const url = `https://api.unsplash.com/photos/random?orientation=landscape&query=${input.value}&client_id=fLx2muEM1pQMY1fROF63UCd7atnjMFnyqjt8441dgwU`;
+	const res = await fetch(url);
+	const data = await res.json();
+	const img = new Image();
+
+	img.src = data.urls.regular;
+	img.onload = () => {
+		document.body.style.backgroundImage = `url('${img.src}')`;
+	}
+}
+
+
+export function setImage(event) {
+	if (event.code === 'Enter') {
+		setBackgroundAPI();
+   	input.blur();
+		localStorage.setItem('imageTag', input.value);
+  	}
+}
+
+input.addEventListener('keypress', setImage);
 // --------------------------------------------------------------------
 // SLIDER FUNCTIONS
 const slideNext = document.querySelector('.slider-icons__next');
@@ -34,6 +59,11 @@ function getSlidePrev() {
 	setBackground();
 }
 
-slideNext.addEventListener('click', getSlideNext);
-slidePrev.addEventListener('click', getSlidePrev);
+slideNext.addEventListener('click', () => {
+	state.activePhotoSource === 'GIT' ? getSlideNext() : setBackgroundAPI();
+});
+
+slidePrev.addEventListener('click', () => {
+	state.activePhotoSource === 'GIT' ? getSlidePrev() : setBackgroundAPI();
+});
 // --------------------------------------------------------------------

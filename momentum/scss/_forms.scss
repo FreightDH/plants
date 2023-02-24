@@ -40,7 +40,7 @@
 	@include anim(0.3s, 0s);
 }
  
- input:checked + .toggle {
+input:checked + .toggle {
 	background-color: #4cbf3f;
 }
  
