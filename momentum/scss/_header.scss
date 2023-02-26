@@ -15,22 +15,47 @@ header {}
 .header-body-player {
 	@include anim(0.3s, 0s);
 }
-.player-controls {
-	width: 120px;
-	margin-bottom: 28px;
-
+.header-body-player {
+}
+.advanced {
+}
+.advanced-timeline {
+	padding: 10px 0px 15px 0px;
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
 
+	&__line {
+		width: 175px;
+		height: 10px;
+		margin: 0 10px;
+		border-radius: 5px;
+		background-color: #fff;
+		cursor: pointer;
+		position: relative;
+	}
+
+	&__progress {
+		position: absolute;
+		height: 10px;
+		top: 0;
+		left: 0;
+		background: #444;
+		border-radius: 5px;
+		@include anim(0.3s, 0s);
+	}
+}
+
+.advanced-controls {
+	position: relative;
+	width: 100%;
+	
 	&__prev {
 		background-image: url("../assets/svg/play-prev.svg");
 	}
 
 	&__play {
-		width: 40px;
-		height: 40px;
-		background-size: 40px 40px;
+		margin: 0 20px;
+
 		background-image: url("../assets/svg/play.svg");
 
 		&.play {
@@ -41,8 +66,57 @@ header {}
 	&__next {
 		background-image: url("../assets/svg/play-next.svg");
 	}
+
+	&__volume {
+		position: absolute;
+		top: 0;
+		right: 0;
+		background-image: url("../assets/svg/volume.svg");
+
+		&.off {
+			background-image: url("../assets/svg/volume-off.svg");
+		}
+	}
 }
-.player-list {
+
+.advanced-time {
+
+	&__current {
+	}
+	
+	&__divider {
+	}
+
+	&__length {
+	}
+}
+.advansed-name {
+}
+
+.advanced-controls-slider {
+	overflow: hidden;
+	position: absolute;
+	top: 4px;
+	right: 40px;
+
+	width: 0px;
+	height: 25px;
+	background: white;
+	@include anim(0.3s, 0s);
+
+	&.active {
+		width: 175px;
+	}
+	
+	&__progress {
+		background: #444;
+		height: 100%;
+		width: 25%;
+		@include anim(0.3s, 0s);
+	}
+}
+.advanced-list {
+	padding: 10px 0px 0px 0px;
 	text-align: left;
 
 	&__item {
@@ -60,7 +134,7 @@ header {}
 			content: "\2713";  
 			position: absolute;
 			left: 0;
-			top: 2px;
+			top: px;
 			font-weight: 900;
 		}
 

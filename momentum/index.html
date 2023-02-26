@@ -12,13 +12,33 @@
 	<div class="wrapper">
 		<header class="header">
 			<div class="header-body">
-				<div class="header-body-player player">
+				<!-- <div class="header-body-player player">
 					<div class="player-controls">
 						<button class="player-controls__prev player-icon"></button>
 						<button class="player-controls__play player-icon"></button>
 						<button class="player-controls__next player-icon"></button>
 					 </div>
 					 <ul class="player-list"></ul>
+				</div> -->
+				<div class="header-body-player advanced">
+					<div class="advansed-name"></div>
+					<div class="advanced-timeline">
+						<div class="advanced-timeline__current">0:00</div>
+						<div class="advanced-timeline__line">
+							<div class="advanced-timeline__progress"></div>
+						</div>
+						<div class="advanced-timeline__length">0:00</div>
+					 </div>
+					<div class="advanced-controls">
+						<button class="advanced-controls__prev player-icon"></button>
+						<button class="advanced-controls__play player-icon"></button>
+						<button class="advanced-controls__next player-icon"></button>
+						<button class="advanced-controls__volume player-icon"></button>
+						<div class="advanced-controls-slider">
+							<div class="advanced-controls-slider__progress"></div>
+						</div>
+					</div> 
+					<ul class="advanced-list"></ul>
 				</div>
 				<div class="header-body-weather weather">
 					<input type="text" class="weather__city" value="Minsk">
@@ -45,7 +65,6 @@
 				<date class="content-body__date"></date>
 				<div class="content-body-greeting">
 					<span class="content-body-greeting__text"></span>
-					<!-- <input type="text" class="content-body-greeting__name" placeholder="[ Your name ]" maxlength="10"> -->
 					<span class="content-body-greeting__name">[ Your name ]</span>
 				</div>
 			</div>
