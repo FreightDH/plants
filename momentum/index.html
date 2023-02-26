@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Momentum</title>
+</head>
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<div class="header-body">
+				<!-- <div class="header-body-player player">
+					<div class="player-controls">
+						<button class="player-controls__prev player-icon"></button>
+						<button class="player-controls__play player-icon"></button>
+						<button class="player-controls__next player-icon"></button>
+					 </div>
+					 <ul class="player-list"></ul>
+				</div> -->
+				<div class="header-body-player advanced">
+					<div class="advansed-name"></div>
+					<div class="advanced-timeline">
+						<div class="advanced-timeline__current">0:00</div>
+						<div class="advanced-timeline__line">
+							<div class="advanced-timeline__progress"></div>
+						</div>
+						<div class="advanced-timeline__length">0:00</div>
+					 </div>
+					<div class="advanced-controls">
+						<button class="advanced-controls__prev player-icon"></button>
+						<button class="advanced-controls__play player-icon"></button>
+						<button class="advanced-controls__next player-icon"></button>
+						<button class="advanced-controls__volume player-icon"></button>
+						<div class="advanced-controls-slider">
+							<div class="advanced-controls-slider__progress"></div>
+						</div>
+					</div> 
+					<ul class="advanced-list"></ul>
+				</div>
+				<div class="header-body-weather weather">
+					<input type="text" class="weather__city" value="Minsk">
+					<i class="weather__icon owf"></i>
+					<div class="weather__error" hidden></div>
+					<div class="weather-description">
+					  <span class="weather-description__temperature"></span>
+					  <span class="weather-description__description"></span>
+					</div>
+					<div class="weather__wind"></div>
+					<div class="weather__humidity"></div>
+				</div>
+			</div>
+		</header>
+		<main class="content">
+			<div class="content-body">
+				<div class="content-body-slider slider">
+					<div class="slider-icons">
+						<button class="slider-icons__prev slider-icon"></button>
+						<button class="slider-icons__next slider-icon"></button>
+					 </div>
+				</div>
+				<time class="content-body__time"></time>
+				<date class="content-body__date"></date>
+				<div class="content-body-greeting">
+					<span class="content-body-greeting__text"></span>
+					<span class="content-body-greeting__name">[ Your name ]</span>
+				</div>
+			</div>
+		</main>
+		<footer class="footer">
+			<div class="footer-body">
+				<div class="footer-body-settings">
+					<div class="footer-body-settings-window">
+						<div class="footer-body-settings-window-title"></div>
+						<ul class="footer-body-settings-window-list">
+							<li class="footer-body-settings-window-list__option option">
+								<span class="option__text"></span>
+								<label class="switch">
+									<input type="checkbox" checked class="checkbox" data-value="0">
+									<span class="toggle"></span>
+								</label>
+							</li>
+							<li class="footer-body-settings-window-list__option option">
+								<span class="option__text"></span>
+								<label class="switch">
+									<input type="checkbox" checked class="checkbox" data-value="1">
+									<span class="toggle"></span>
+								</label>
+							</li>
+							<li class="footer-body-settings-window-list__option option">
+								<span class="option__text"></span>
+								<label class="switch">
+									<input type="checkbox" checked class="checkbox" data-value="2">
+									<span class="toggle"></span>
+								</label>
+							</li>
+							<li class="footer-body-settings-window-list__option option">
+								<span class="option__text"></span>
+								<label class="switch">
+									<input type="checkbox" checked class="checkbox" data-value="3">
+									<span class="toggle"></span>
+								</label>
+							</li>
+							<li class="footer-body-settings-window-list__option option">
+								<span class="option__text"></span>
+								<label class="switch">
+									<input type="checkbox" checked class="checkbox" data-value="4">
+									<span class="toggle"></span>
+								</label>
+							</li>
+							<li class="footer-body-settings-window-list__option option">
+								<span class="option__text"></span>
+								<label class="switch">
+									<input type="checkbox" checked class="checkbox" data-value="5">
+									<span class="toggle"></span>
+								</label>
+							</li>
+						</ul>
+						<div class="footer-body-settings-window-title"></div>
+						<div class="footer-body-settings-window-images">
+							<button data-value = "0" class="footer-body-settings-window-images__option git">GIT</button>
+							<button data-value = "1" class="footer-body-settings-window-images__option api">API</button>
+							<input type="text" class="footer-body-settings-window-images__input" value="nature">
+						</div>
+						<div class="footer-body-settings-window-title"></div>
+						<div class="footer-body-settings-window-language">
+							<button data-value = "0" class="footer-body-settings-window-language__option en">EN</button>
+							<button data-value = "1" class="footer-body-settings-window-language__option ru">RU</button>
+						</div>
+					</div>
+					<button class="footer-body-settings__button settings-icon"></button>
+				</div>
+				<div class="footer-body-quote">
+					<button class="footer-body__change change-quote"></button>
+					<div class="footer-body-quote__text"></div>
+			  		<div class="footer-body-quote__author"></div>
+				</div>
+			</div>
+		</footer>
+	</div>	
+	<script type="module" src="js/script.js"></script>
+</body>
+</html>
