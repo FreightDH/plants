@@ -92,6 +92,38 @@ body {
 //</ПОДЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>
 
 //<ОСНОВНОЙ БЛОК>
+.overlay {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.7);
+	z-index: 5;
+ }
+ .popup {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 38%;
+	left: 38%;
+	padding: 40px 20px;
+	background: #fff;
+	width: 25%;
+	height: 200px;
+
+	&__content {
+		font-size: 25px;
+		line-height: 30px;
+		color: #000;
+
+		a {
+			text-decoration: underline;
+			color: blue;
+		}
+	}
+}
+
 .content {
 	width: 100%;
 	height: 40vh;

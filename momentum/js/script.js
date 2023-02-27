@@ -11,4 +11,5 @@ showDate();
 showGreeting();
 getQuotes();
 createPlaylist();
+setBackground();
 settingsOptions();
