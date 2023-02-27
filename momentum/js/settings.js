@@ -10,13 +10,14 @@ const audio = document.querySelector('.header-body-player');
 const en = document.querySelector('.en');
 const ru = document.querySelector('.ru');
 const git = document.querySelector('.git');
-const api = document.querySelector('.api');
+const unsplash = document.querySelector('.unsplash');
+const flickr = document.querySelector('.flickr');
 const state = {
 	blocks: [time, date, greeting, quote, weather, audio],
 	language: [en, ru],
-	photoSource: [git, api],
+	photoSource: [git, unsplash, flickr],
 	activeLanguage: 'EN',
-	activePhotoSource: 'GIT',
+	activePhotoSource: 'Git',
 };
 export default state;
 // --------------------------------------------------------------------
@@ -108,9 +109,13 @@ const input = document.querySelector('.footer-body-settings-window-images__input
 images.addEventListener('click', function (event) {
 	const value = event.target.dataset.value;
 	
-	if ((event.target.closest('.git') || event.target.closest('.api')) && !event.target.closest('.footer-body-settings-window-images__input')) {
+	if ((event.target.closest('.git') || event.target.closest('.unsplash') || event.target.closest('.flickr')) && !event.target.closest('.footer-body-settings-window-images__input')) {
 		if (state.photoSource.at(value - 1).classList.contains('active')) {
 			state.photoSource.at(value - 1).classList.remove('active');
+			state.photoSource[value].classList.add('active');
+			state.activePhotoSource = event.target.textContent;
+		} else if (state.photoSource.at(value - 2).classList.contains('active')){
+			state.photoSource.at(value - 2).classList.remove('active');
 			state.photoSource[value].classList.add('active');
 			state.activePhotoSource = event.target.textContent;
 		} else {
@@ -118,7 +123,7 @@ images.addEventListener('click', function (event) {
 			state.activePhotoSource = event.target.textContent;
 		}
 		
-		if (state.activePhotoSource === 'GIT') {
+		if (state.activePhotoSource === 'Git') {
 			input.classList.remove('api');
 			setBackground();
 		} else {

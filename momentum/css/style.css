@@ -745,6 +745,7 @@ body.lock {
 .wrapper > main {
   flex: 1 1 auto;
 }
+
 .container {
   max-width: 1170px;
   width: 100%;
@@ -773,6 +774,7 @@ body.lock {
   height: 30vh;
   min-height: 220px;
   padding: 20px;
+  z-index: 2;
 }
 
 .header-body {
@@ -804,7 +806,7 @@ body.lock {
   height: 10px;
   top: 0;
   left: 0;
-  background: #444;
+  background: #A7A7A8;
   border-radius: 5px;
   transition: all 0.3s ease 0s;
 }
@@ -850,7 +852,7 @@ body.lock {
   width: 175px;
 }
 .advanced-controls-slider__progress {
-  background: #444;
+  background: #A7A7A8;
   height: 100%;
   width: 25%;
   transition: all 0.3s ease 0s;
@@ -862,23 +864,18 @@ body.lock {
 }
 .advanced-list__item {
   position: relative;
-  padding: 5px 5px 5px 20px;
+  padding: 7px 5px 7px 35px;
   opacity: 0.8;
   transition: 0.3s;
   cursor: pointer;
+  background: url("../assets/svg/play_1.svg") left/25px 25px no-repeat;
 }
 .advanced-list__item:hover {
   opacity: 1;
 }
-.advanced-list__item::before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  top: px;
-  font-weight: 900;
-}
-.advanced-list__item.active::before {
-  color: #C5B358;
+.advanced-list__item.active {
+  opacity: 1;
+  background: url("../assets/svg/pause_1.svg") left/25px 25px no-repeat;
 }
 
 .header-body-weather {
@@ -924,6 +921,7 @@ body.lock {
 .weather__error {
   margin: 10px 0px 0px 0px;
 }
+
 .weather-description {
   display: flex;
   flex-wrap: wrap;
@@ -932,6 +930,7 @@ body.lock {
   -moz-column-gap: 14px;
        column-gap: 14px;
 }
+
 .footer {
   width: 100%;
   padding: 20px;
@@ -966,6 +965,7 @@ body.lock {
 
 .footer-body-settings-window {
   opacity: 0;
+  width: 250px;
   padding: 20px;
   border-radius: 3px;
   background-color: #fff;
@@ -998,6 +998,9 @@ body.lock {
 .footer-body-settings-window-images__option.active {
   opacity: 1;
 }
+.footer-body-settings-window-images__option.unsplash {
+  margin: 0 10px;
+}
 .footer-body-settings-window-images__input {
   width: 100%;
   height: 0px;
@@ -1024,36 +1027,6 @@ body.lock {
 }
 .footer-body-quote__text {
   padding: 20px 0;
-}
-.overlay {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.7);
-  z-index: 5;
-}
-
-.popup {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 38%;
-  left: 38%;
-  padding: 40px 20px;
-  background: #fff;
-  width: 25%;
-  height: 200px;
-}
-.popup__content {
-  font-size: 25px;
-  line-height: 30px;
-  color: #000;
-}
-.popup__content a {
-  text-decoration: underline;
-  color: blue;
 }
 
 .content {

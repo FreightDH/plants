@@ -20,7 +20,6 @@ const playNextButton = document.querySelector('.advanced-controls__next');
 const playPrevButton = document.querySelector('.advanced-controls__prev');
 const volumeButton = document.querySelector('.advanced-controls__volume');
 const volumeSlider = document.querySelector('.advanced-controls-slider');
-const volumeSliderWidth = window.getComputedStyle(volumeSlider).width;
 const volumeProgress = document.querySelector('.advanced-controls-slider__progress');
 const playListContainer = document.querySelector('.advanced-list');
 const playListSongs = document.querySelectorAll('.advanced-list__item');
@@ -123,16 +122,24 @@ volumeSlider.addEventListener('mouseout', () => {
 	volumeSlider.classList.remove('active');
 });
 volumeSlider.addEventListener('click', (event) => {
+	const volumeSliderWidth = window.getComputedStyle(volumeSlider).width;
 	const newVolume = event.offsetX / parseInt(volumeSliderWidth);
 	audio.volume = newVolume;
 	volumeProgress.style.width = newVolume * 100 + '%';
 });
-playListContainer.addEventListener('click', (event) => {
-	songs[playNum].classList.remove('active');
-	playNum = event.target.dataset.value;
-	audio.src = playList[playNum].src;
-	isPlay = false;
-	audio.currentTime = 0;
-	playAudio();
+playListContainer.addEventListener('click', (event) => {	
+	const value = event.target.dataset.value;
+	if (songs[value].classList.contains('active')) {
+		songs[value].classList.remove('active');
+		isPlay = true;
+		playAudio();
+	} else {
+		songs[playNum].classList.remove('active');
+		playNum = +value;
+		audio.src = playList[playNum].src;
+		isPlay = false;
+		audio.currentTime = 0;
+		playAudio();
+	}
 });
 // --------------------------------------------------------------------

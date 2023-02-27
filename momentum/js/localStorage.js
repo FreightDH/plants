@@ -39,15 +39,25 @@ export function getLocalStorage() {
 		state.activePhotoSource = localStorage.getItem('photoSource');
 
 		const git = document.querySelector('.git');
-		const api = document.querySelector('.api');
+		const unsplash = document.querySelector('.unsplash');
+		const flickr = document.querySelector('.flickr');
 
-		if (state.activePhotoSource === 'GIT') { 
+		if (state.activePhotoSource === 'Git') { 
 			git.classList.add('active');  
-			api.classList.remove('active'); 
+			unsplash.classList.remove('active'); 
+			flickr.classList.remove('active'); 
 			setBackground();
-		} else {
-			api.classList.add('active');
+		} else if (state.activePhotoSource === 'Unsplash'){
+			unsplash.classList.add('active');
 			git.classList.remove('active');
+			flickr.classList.remove('active'); 
+			input.classList.add('api')
+			input.value = localStorage.getItem('imageTag');
+			setBackgroundAPI();
+		} else {
+			flickr.classList.add('active');
+			git.classList.remove('active');
+			unsplash.classList.remove('active'); 
 			input.classList.add('api')
 			input.value = localStorage.getItem('imageTag');
 			setBackgroundAPI();

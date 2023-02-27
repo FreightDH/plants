@@ -23,17 +23,25 @@ export function setBackground() {
 
 const input = document.querySelector('.footer-body-settings-window-images__input');
 export async function setBackgroundAPI() {
-	const url = `https://api.unsplash.com/photos/random?orientation=landscape&query=${input.value}&client_id=fLx2muEM1pQMY1fROF63UCd7atnjMFnyqjt8441dgwU`;
+	
+	const url = state.activePhotoSource === 'Unsplash' ? `https://api.unsplash.com/photos/random?orientation=landscape&query=${input.value}&client_id=fLx2muEM1pQMY1fROF63UCd7atnjMFnyqjt8441dgwU` : `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=7ec72f518a51f026def11810321985dd&tags=${input.value}&extras=url_l&format=json&nojsoncallback=1`;
+	
 	const res = await fetch(url);
 	const data = await res.json();
 	const img = new Image();
 
-	img.src = data.urls.regular;
-	img.onload = () => {
-		document.body.style.backgroundImage = `url('${img.src}')`;
+	if (state.activePhotoSource === 'Unsplash') {
+		img.src = data.urls.regular;
+		img.onload = () => {
+			document.body.style.backgroundImage = `url('${img.src}')`;
+		}
+	} else {
+		img.src = data.photos.photo[getRandomNum(1, 100)].url_l;
+		img.onload = () => {
+			document.body.style.backgroundImage = `url('${img.src}')`;
+		}
 	}
 }
-
 
 export function setImage(event) {
 	if (event.code === 'Enter') {
@@ -60,10 +68,10 @@ function getSlidePrev() {
 }
 
 slideNext.addEventListener('click', () => {
-	state.activePhotoSource === 'GIT' ? getSlideNext() : setBackgroundAPI();
+	state.activePhotoSource === 'Git' ? getSlideNext() : setBackgroundAPI();
 });
 
 slidePrev.addEventListener('click', () => {
-	state.activePhotoSource === 'GIT' ? getSlidePrev() : setBackgroundAPI();
+	state.activePhotoSource === 'Git' ? getSlidePrev() : setBackgroundAPI();
 });
 // --------------------------------------------------------------------

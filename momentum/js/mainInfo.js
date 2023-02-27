@@ -61,10 +61,12 @@ export function showGreeting() {
 	if (language === 'EN') {
 		greeting.textContent = `Good ${timeOfDay[language][index]},`;
 	} else {
-		switch (index) {
-			case 0: greeting.textContent = `Доброй ${timeOfDay[language][index]},`;
-			case 1: greeting.textContent = `Доброе ${timeOfDay[language][index]},`;
-			default: greeting.textContent = `Добрый ${timeOfDay[language][index]},`;
+		if (index === 0) {
+			greeting.textContent = `Доброй ${timeOfDay[language][index]},`;
+		} else if (index === 1) {
+			greeting.textContent = `Доброе ${timeOfDay[language][index]},`;
+		} else {
+			greeting.textContent = `Добрый ${timeOfDay[language][index]},`;
 		}
 	}
 	

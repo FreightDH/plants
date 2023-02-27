@@ -1,22 +1,22 @@
 const playList = [
 	{      
-	  title: 'Aqua Caelestis',
-	  src: '../assets/sounds/Aqua Caelestis.mp3',
-	  duration: '00:58'
+	  	title: 'Наше лето',
+	  	src: '../assets/sounds/Наше_Лето.mp3',
+	  	duration: '03:16'
 	},  {      
-	  title: 'River Flows In You',
-	  src: '../assets/sounds/River Flows In You.mp3',
-	  duration: '03:50'
+	  	title: 'Этот город',
+	  	src: '../assets/sounds/Этот_Город.mp3',
+	  	duration: '04:05'
 	},
 	{      
-	  title: 'Summer Wind',
-	  src: '../assets/sounds/Summer Wind.mp3',
-	  duration: '05:05'
+	  	title: 'Выдыхай',
+	  	src: '../assets/sounds/Выдыхай.mp3',
+	  	duration: '04:07'
 	},
-	{      
-	  title: 'Ennio Morricone',
-	  src: '../assets/sounds/Ennio Morricone.mp3',
-	  duration: '05:03'
+	{
+		title: 'Что такое осень',
+	  	src: '../assets/sounds/Что_Такое_Осень.mp3',
+	  	duration: '03:55'
 	}
 ]
 export default playList;
