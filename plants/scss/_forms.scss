@@ -1,0 +1,88 @@
+//<BUTTONS (a.btn + tab)>
+.btn {
+	display: inline-block;
+	padding: 0px 40px;
+	min-height: 50px;
+	min-width: 160px;
+	
+	border: 1px solid #E06733;
+	border-radius: 5px;
+
+	font-size: 20px;
+	line-height: 50px;
+	color: #E06733;
+	text-align: center;
+	
+	@include anim(0.3s, 0s);
+
+	@media (max-width: $md4) {
+		padding: 0px 28px;
+		min-height: 35px;
+		min-width: 120px;
+		
+		font-size: 15px;
+		line-height: 20px;
+	}
+
+	&.btn--b {
+		padding: 0px 27px;
+		min-height: 44px;
+		min-width: 160px;
+
+		border: 2px solid #E06733;
+		border-radius: 10px;
+
+		color: #000;
+		font-size: 16px;
+		line-height: 42px;
+		text-transform: uppercase;
+
+		@media (max-width: $md4) {
+			padding: 0px 18px;
+			min-width: 100px;
+			min-height: 34px;
+
+			font-size: 10px;
+			line-height: 34px;
+		}
+	}
+
+	&.btn--s {
+		padding: 0 25px;
+
+		font-weight: 700;
+		
+		@media (max-width: $md4) {
+			padding: 0 22px;
+			
+			font-size: 15px;
+			line-height: 35px;
+		}
+	}
+
+	&.active, &:hover {
+		background-color: #E06733;
+		color: #fff;
+	}
+	
+	&.fw {
+		width: 100%;
+	}
+}
+//</BUTTONS>
+
+//<INPUT (inp + tab)>
+// input[type=text],input[type=email],input[type=tel],textarea{-webkit-appearance: none;-moz-appearance: none;appearance: none;}
+// .input {
+// 	border-radius: 0 !important;
+// 	width: 100%;
+// 	display: block;
+// 	padding: 0px 20px;
+// 	&:focus{}
+// 	&:err{}
+// }
+// textarea.input {
+// 	resize: none;
+// 	padding: 0px 0px 0px 0px;
+// }
+//</INPUT>
