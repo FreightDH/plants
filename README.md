@@ -1,4 +1,9 @@
 ## Project "Plants"
+### Tech stack
+- HTML
+- SCSS
+- Javascript
+
 ### Features
 - Burger menu;
 - Filtration;
